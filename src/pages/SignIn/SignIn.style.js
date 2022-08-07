@@ -12,6 +12,7 @@ export const SignInContainer = styled.div`
   height: 480px;
   padding: 50px 0;
   background-color: ${({ theme }) => theme.black};
+  background-color: rgba(35, 35, 35, 0.9);
 `;
 export const EntryContainer = styled.form`
   display: flex;
