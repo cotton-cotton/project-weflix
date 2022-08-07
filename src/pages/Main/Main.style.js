@@ -26,11 +26,11 @@ export const Content = styled.div`
   top: 30%;
   left: 30%;
   width: 40%;
-  height: 300px;
+  height: 370px;
   text-align: center;
 `;
 export const Title = styled.p`
-  font-size: ${({ theme }) => theme.big};
+  font-size: ${({ theme }) => theme.huge};
 `;
 export const SubTitle = styled.p`
   font-size: ${({ theme }) => theme.large};

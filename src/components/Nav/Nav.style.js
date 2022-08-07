@@ -17,7 +17,7 @@ export const Logo = styled.img`
 export const LogInContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 15%;
+  width: 13%;
 `;
 export const SignIn = styled.button`
   width: 90px;
