@@ -29,6 +29,7 @@ export const SignIn = styled.button`
   letter-spacing: 2px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 `;
 export const SignUp = styled.button`
   width: 90px;
@@ -40,4 +41,5 @@ export const SignUp = styled.button`
   letter-spacing: 2px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 `;
