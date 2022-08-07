@@ -10,7 +10,7 @@ export const FooterWrapper = styled.footer`
   padding: 30px 0;
   color: ${({ theme }) => theme.middleGray};
   background-color: ${({ theme }) => theme.navBlack};
-  border-top: 10px solid ${({ theme }) => theme.middleGray};
+  border-top: ${({ theme }) => theme.mainBottomLine};
 `;
 export const TopContainer = styled.section``;
 export const WeFlix = styled.p`
