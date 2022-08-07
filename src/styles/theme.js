@@ -3,6 +3,7 @@ const theme = {
   black: '#222',
   navBlack: '#282828',
   mainBlue: '#4E68B5',
+  deepGray: '#494949',
   middleGray: '#7f7b7b',
   lightGray: '#babab8',
 
@@ -12,7 +13,7 @@ const theme = {
   big: '50px',
   large: '30px',
   medium: '18px',
-  small: '12px',
+  small: '14px',
 
   bold: '700',
   normal: '400',
