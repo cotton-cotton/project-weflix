@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as S from '../Nav/Nav.style';
 import LogoImg from '../../assets/logo3.png';
 import { Link } from 'react-router-dom';
@@ -8,20 +8,28 @@ import SignIn from '../../pages/SignIn/SignIn';
 const Nav = () => {
   const [signUpModal, setSignUpModal] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
+  const el = useRef();
 
-  const openSignUpModal = () => {
-    setSignUpModal(true);
-  };
-  const closeSignUpModal = () => {
-    setSignUpModal(false);
-  };
+  useEffect(() => {
+    const closeSignUpModal = event => {
+      if (signUpModal && el.current && !el.current.contains(event.target)) {
+        setSignUpModal(false);
+      }
+    };
+    const closeSignInModal = event => {
+      if (signInModal && el.current && !el.current.contains(event.target)) {
+        setSignInModal(false);
+      }
+    };
+    document.addEventListener('click', closeSignUpModal);
+    document.addEventListener('click', closeSignInModal);
 
-  const openSignInModal = () => {
-    setSignInModal(true);
-  };
-  const closeSignInModal = () => {
-    setSignInModal(false);
-  };
+    return () => {
+      document.removeEventListener('click', closeSignUpModal);
+      document.removeEventListener('click', closeSignInModal);
+    };
+  }, [signUpModal, signInModal]);
+
   return (
     <S.Wrapper>
       <S.LogoContainer>
@@ -29,19 +37,11 @@ const Nav = () => {
           <S.Logo src={LogoImg} alt="logo" />
         </Link>
       </S.LogoContainer>
-      <S.LogInContainer>
-        <S.SignUp onClick={openSignUpModal} onBlur={closeSignUpModal}>
-          SignUp
-        </S.SignUp>
-        <S.SignUpModal>
-          {signUpModal === true ? <SignUp /> : null}
-        </S.SignUpModal>
-        <S.SignIn onClick={openSignInModal} onBlur={closeSignInModal}>
-          SignIn
-        </S.SignIn>
-        <S.SignInModal>
-          {signInModal === true ? <SignIn /> : null}
-        </S.SignInModal>
+      <S.LogInContainer ref={el}>
+        <S.SignUp onClick={() => setSignUpModal(pre => !pre)}>SignUp</S.SignUp>
+        <S.SignUpModal>{signUpModal ? <SignUp /> : null}</S.SignUpModal>
+        <S.SignIn onClick={() => setSignInModal(pre => !pre)}>SignIn</S.SignIn>
+        <S.SignInModal>{signInModal ? <SignIn /> : null}</S.SignInModal>
       </S.LogInContainer>
     </S.Wrapper>
   );

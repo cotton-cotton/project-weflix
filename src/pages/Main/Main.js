@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as S from '../Main/Main.style';
 import BackgroundImage from '../../assets/main-background.jpeg';
 import FirstListImg from '../../assets/신밧드의 모험.jpg';
@@ -19,12 +19,12 @@ const Main = () => {
             다양한 디바이스에서 시청하세요. 언제든 해지하실 수 있습니다.
           </S.SubTitle>
           <S.Des>
-            <S.letter>멤버십을 등록하거나 재시작하려면</S.letter>
-            <S.letter>이메일 주소를 입력하세요</S.letter>
+            <S.letter>지금 바로 맞춤형 서비스를 체험해보세요</S.letter>
+            <S.letter>원하는 영상을 언제든지 검색해보세요</S.letter>
           </S.Des>
           <S.Search>
-            <S.SearchBar type="text" placeholder="이메일 주소" />
-            <S.SearchButton>시작하기 ></S.SearchButton>
+            <S.SearchBar type="text" placeholder="영상제목 검색" />
+            <S.SearchButton>검색하기 ></S.SearchButton>
           </S.Search>
         </S.Content>
       </S.IntroContainer>
