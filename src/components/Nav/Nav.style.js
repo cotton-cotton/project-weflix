@@ -43,3 +43,21 @@ export const SignUp = styled.button`
   border: none;
   cursor: pointer;
 `;
+export const SignUpModal = styled.div`
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+`;
+export const SignInModal = styled.div`
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+`;

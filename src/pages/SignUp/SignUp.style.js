@@ -12,6 +12,7 @@ export const SignUpContainer = styled.div`
   height: 680px;
   padding: 50px 0;
   background-color: ${({ theme }) => theme.black};
+  background-color: rgba(35, 35, 35, 0.9);
 `;
 export const EntryContainer = styled.form`
   display: flex;
@@ -70,8 +71,4 @@ export const Personal = styled.input`
 `;
 export const CheckboxContent = styled.p`
   color: ${({ theme }) => theme.lightGray};
-`;
-
-export const test = styled.input`
-  border-bottom: 1px solid red;
 `;

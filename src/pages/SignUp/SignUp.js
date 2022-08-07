@@ -20,6 +20,24 @@ const SignUp = () => {
       [id]: value,
     });
   };
+
+  const [activeBorder, setActiveBorder] = useState({
+    border: false,
+  });
+  const { border } = activeBorder;
+
+  const handleFocusBorder = border => {
+    setActiveBorder({
+      ...activeBorder,
+      [border]: false,
+    });
+  };
+  const handleBlurBorder = border => {
+    setActiveBorder({
+      ...activeBorder,
+      [border]: false,
+    });
+  };
   return (
     <S.SignUpWrapper>
       <S.SignUpContainer>

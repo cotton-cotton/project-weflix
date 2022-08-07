@@ -5,7 +5,6 @@ import FirstListImg from '../../assets/신밧드의 모험.jpg';
 import SecondListImg from '../../assets/자이로드롭.jpg';
 import ThirdListImg from '../../assets/도버.jpg';
 import LastListImg from '../../assets/코코볼.JPG';
-import { BsSearch } from 'react-icons/bs';
 
 const Main = () => {
   return (

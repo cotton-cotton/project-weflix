@@ -19,5 +19,5 @@ export const Input = styled.input`
     color: ${({ theme }) => theme.lightGray};
   }
   border-bottom: ${({ id, focus }) =>
-    focus !== '' ? '1px solid red' : '1px solid teal'};
+    focus === id ? '2px solid #4E68B5' : null};
 `;
