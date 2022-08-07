@@ -11,42 +11,30 @@ const SignUp = () => {
     userPasswordConfirm: '',
   });
 
+  const [checkboxActive, setCheckboxActive] = useState(false);
+
   const { userName, userEmail, userPassword, userPasswordConfirm } = inputValue;
 
   const handleInput = event => {
-    const { id, value } = event.target;
+    const { name, value } = event.target;
     setInputValue({
       ...inputValue,
-      [id]: value,
+      [name]: value,
     });
   };
 
-  const [activeBorder, setActiveBorder] = useState({
-    border: false,
-  });
-  const { border } = activeBorder;
-
-  const handleFocusBorder = border => {
-    setActiveBorder({
-      ...activeBorder,
-      [border]: false,
-    });
-  };
-  const handleBlurBorder = border => {
-    setActiveBorder({
-      ...activeBorder,
-      [border]: false,
-    });
+  const isCheckboxActive = () => {
+    setCheckboxActive(!checkboxActive);
   };
   return (
     <S.SignUpWrapper>
       <S.SignUpContainer>
         <S.EntryContainer>
           <S.Title>회원가입</S.Title>
-          {SignUpData.map(list => {
+          {SignUpData.map((list, index) => {
             return (
               <InputContainer
-                key={list.id}
+                key={index}
                 id={list.id}
                 name={list.name}
                 placeholder={list.placeholder}
@@ -57,12 +45,21 @@ const SignUp = () => {
             );
           })}
           <S.ButtonContainer>
-            <S.SignUpButton>회원가입</S.SignUpButton>
+            <S.SignUpButton
+              disabled={isCheckboxActive ? false : true}
+              checkboxActive={checkboxActive}
+            >
+              회원가입
+            </S.SignUpButton>
           </S.ButtonContainer>
         </S.EntryContainer>
         <S.CheckboxContainer>
           <S.PolicyAgree>
-            <S.Policy type="checkbox" />
+            <S.Policy
+              type="checkbox"
+              onClick={isCheckboxActive}
+              isCheckboxActive={isCheckboxActive}
+            />
             <S.CheckboxContent>
               개인정보 수집 이용에 동의합니다.
             </S.CheckboxContent>
