@@ -15,24 +15,7 @@ const InputContainer = ({
   const isFocusBorder = id => {
     setFocus(id);
   };
-  const [activeBorder, setActiveBorder] = useState({
-    border: false,
-  });
-  const { border } = activeBorder;
 
-  const handleFocusBorder = border => {
-    setActiveBorder({
-      ...activeBorder,
-      [border]: false,
-    });
-  };
-  const handleBlurBorder = border => {
-    setActiveBorder({
-      ...activeBorder,
-      [border]: false,
-    });
-  };
-  console.log(focus);
   return (
     <S.InputContainer>
       <S.Input

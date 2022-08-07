@@ -9,10 +9,10 @@ const SignIn = () => {
       <S.SignInContainer>
         <S.EntryContainer>
           <S.Title>로그인</S.Title>
-          {SignInData.map(list => {
+          {SignInData.map((list, index) => {
             return (
               <InputContainer
-                key={list.id}
+                key={index}
                 id={list.id}
                 name={list.name}
                 placeholder={list.placeholder}
