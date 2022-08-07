@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <S.Wrapper>
       <S.LogoContainer>
-        <S.Logo src={LogoImg} />
+        <S.Logo src={LogoImg} alt="logo" />
       </S.LogoContainer>
       <S.LogInContainer>
         <S.SignUp>SignUp</S.SignUp>
