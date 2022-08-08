@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import UserProfile from './pages/UserProfile/UserProfile';
 import SelectProfile from './pages/SelectProfile/SelectProfile';
+import AddProfile from './pages/AddProfile/AddProfile';
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/profile/user" element={<UserProfile />} />
         <Route path="/profile/select" element={<SelectProfile />} />
+        <Route path="/profile/add" element={<AddProfile />} />
       </Routes>
       <Footer />
     </BrowserRouter>

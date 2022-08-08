@@ -11,8 +11,9 @@ export const Wrapper = styled.nav`
 `;
 export const LogoContainer = styled.div``;
 export const Logo = styled.img`
-  width: 170px;
-  height: 100px;
+  width: 180px;
+  height: 175px;
+  margin-top: 10px;
 `;
 export const LogInContainer = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as S from '../Nav/Nav.style';
-import LogoImg from '../../assets/logo3.png';
+import LogoImg from '../../assets/Weflix-logo.png';
 import { Link } from 'react-router-dom';
 import SignUp from '../../pages/SignUp/SignUp';
 import SignIn from '../../pages/SignIn/SignIn';
