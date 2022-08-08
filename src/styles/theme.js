@@ -16,7 +16,7 @@ const theme = {
   small: '14px',
 
   bold: '700',
-  normal: '400',
+  normal: '500',
   light: '200',
 };
 
