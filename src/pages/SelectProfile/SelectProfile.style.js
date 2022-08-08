@@ -7,7 +7,7 @@ export const SelectWrapper = styled.main`
   padding-top: 100px;
   background-color: ${({ theme }) => theme.black};
 `;
-export const ProfileContainer = styled.section`
+export const SelectContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@ export const Title = styled.p`
 export const ImageContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  width: 28%;
+  width: 55%;
   height: 50%;
 `;
 export const ProfileImg = styled.div`
@@ -31,14 +31,10 @@ export const ProfileImg = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-export const Image = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const Image = styled.img`
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
-  background-color: ${({ theme }) => theme.mainBlue};
   border-radius: 3px;
   cursor: pointer;
   &:hover {
@@ -51,28 +47,30 @@ export const Name = styled.p`
   font-weight: ${({ theme }) => theme.normal};
   letter-spacing: 2px;
 `;
-export const Add = styled.button`
+export const KidsImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
-  background: none;
-  border: none;
+  border: 2px solid #7f7b7b;
   border-radius: 3px;
   cursor: pointer;
   &:hover {
-    box-shadow: 5px 5px 5px 10px black;
+    box-shadow: 5px 5px 5px 5px black;
   }
 `;
-export const RegisterButton = styled.button`
-  width: 80px;
+
+export const ModifyButton = styled.button`
+  width: 130px;
   height: 40px;
   margin-top: 40px;
+  color: ${({ theme }) => theme.middleGray};
   font-size: ${({ theme }) => theme.medium};
   font-weight: ${({ theme }) => theme.normal};
-  border: none;
-  border-radius: 5px;
+  border: 2px solid #7f7b7b;
+  border-radius: 3px;
+  background: none;
   cursor: pointer;
 `;
