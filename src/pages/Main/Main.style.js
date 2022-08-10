@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import BackgroundImage from '../../assets/main-background.jpeg';
-import FirstListImg from '../../assets/신밧드의 모험.jpg';
 
 export const MainWrapper = styled.main`
   width: 100%;
