@@ -1,17 +1,12 @@
 import React from 'react';
 import * as S from '../Main/Main.style';
-import BackgroundImage from '../../assets/main-background.jpeg';
-import FirstListImg from '../../assets/신밧드의 모험.jpg';
-import SecondListImg from '../../assets/자이로드롭.jpg';
-import ThirdListImg from '../../assets/도버.jpg';
-import LastListImg from '../../assets/코코볼.JPG';
 
 const Main = () => {
   return (
     <S.MainWrapper>
       <S.IntroContainer>
         <S.Background>
-          <S.BackImg src={BackgroundImage} alt="background" />
+          <S.BackImg src="/images/main-background.jpeg" alt="background" />
         </S.Background>
         <S.Content>
           <S.Title>다큐멘터리를 무제한으로</S.Title>
@@ -39,13 +34,13 @@ const Main = () => {
               플레이어 등 다양한 디바이스에서 시청하세요.
             </S.ListSubTitle>
           </S.InfoContainer>
-          <S.FirstImg src={FirstListImg} alt="list-img" />
+          <S.FirstImg src="/images/신밧드의 모험.jpg" alt="list-img" />
         </S.ContentContainer>
       </S.ListContainer>
 
       <S.ListContainer>
         <S.ContentContainer>
-          <S.FirstImg src={SecondListImg} alt="list-img" />
+          <S.FirstImg src="/images/자이로드롭.jpg" alt="list-img" />
           <S.InfoContainer>
             <S.ListTitle>즐겨보는 콘텐츠를 저장해</S.ListTitle>
             <S.ListTitle>오프라인으로 시청하세요.</S.ListTitle>
@@ -69,13 +64,13 @@ const Main = () => {
             </S.ListSubTitle>
             <S.ListSubTitle>없습니다.</S.ListSubTitle>
           </S.InfoContainer>
-          <S.FirstImg src={ThirdListImg} alt="list-img" />
+          <S.FirstImg src="/images/도버.jpg" alt="list-img" />
         </S.ContentContainer>
       </S.ListContainer>
 
       <S.ListContainer>
         <S.ContentContainer>
-          <S.FirstImg src={LastListImg} alt="list-img" />
+          <S.FirstImg src="/images/코코볼.JPG" alt="list-img" />
           <S.InfoContainer>
             <S.ListTitle>전용 프로필을</S.ListTitle>
             <S.ListTitle>만들어 보세요.</S.ListTitle>

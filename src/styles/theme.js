@@ -8,6 +8,7 @@ const theme = {
   lightGray: '#babab8',
 
   mainBottomLine: '10px solid #7f7b7b',
+  listBottomLine: '1px solid #7f7b7b',
 
   huge: '60px',
   big: '50px',
