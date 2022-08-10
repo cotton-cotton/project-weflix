@@ -23,9 +23,31 @@ const SignUp = () => {
     });
   };
 
+  const isValidLetter =
+    userName.length >= 1 &&
+    userEmail.length >= 1 &&
+    userPassword.length >= 1 &&
+    userPasswordConfirm.length >= 1;
+
+  const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
+  const passwordReg = new RegExp(
+    '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
+  );
+
+  const isConfirmPassword =
+    inputValue.userPassword === inputValue.userPasswordConfirm;
+
   const isCheckboxActive = () => {
     setCheckboxActive(!checkboxActive);
   };
+
+  const isActiveForm =
+    emailReg.test(userEmail) &&
+    passwordReg.test(userPassword) &&
+    isValidLetter &&
+    isConfirmPassword &&
+    checkboxActive;
+
   return (
     <S.SignUpWrapper>
       <S.SignUpContainer>
@@ -40,14 +62,14 @@ const SignUp = () => {
                 placeholder={list.placeholder}
                 text={list.text}
                 type={list.type}
-                onchange={handleInput}
+                onChange={handleInput}
               />
             );
           })}
           <S.ButtonContainer>
             <S.SignUpButton
-              disabled={isCheckboxActive ? false : true}
-              checkboxActive={checkboxActive}
+              disabled={isActiveForm ? true : false}
+              isActiveForm={isActiveForm}
             >
               회원가입
             </S.SignUpButton>
