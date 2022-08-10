@@ -9,6 +9,7 @@ import UserProfile from './pages/UserProfile/UserProfile';
 import SelectProfile from './pages/SelectProfile/SelectProfile';
 import AddProfile from './pages/AddProfile/AddProfile';
 import ContentList from './pages/ContentList/ContentList';
+import DetailArray from './pages/DetailArray/DetailArray';
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path="/profile/select" element={<SelectProfile />} />
         <Route path="/profile/add" element={<AddProfile />} />
         <Route path="/content/list" element={<ContentList />} />
+        <Route path="/content/all" element={<DetailArray />} />
       </Routes>
       <Footer />
     </BrowserRouter>
