@@ -10,12 +10,12 @@ import { VscTriangleRight } from 'react-icons/vsc';
 const Main = () => {
   return (
     <S.MainWrapper>
-      <S.ListContainer>
+      <S.SliderContent>
         <S.Category>당신이 원하는 다큐멘터리를 어디서나 시청하세요.</S.Category>
         <S.Slider>
           <ContentSlider />
         </S.Slider>
-      </S.ListContainer>
+      </S.SliderContent>
 
       <S.ListContainer>
         <Link to="/content/all" style={{ textDecoration: 'none' }}>
@@ -28,7 +28,6 @@ const Main = () => {
           {NatureListData.map(({ id, index, src, alt }) => {
             return <S.ContentImg key={index} id={id} src={src} alt={alt} />;
           })}
-          ;
         </S.ContentContainer>
       </S.ListContainer>
 
@@ -41,7 +40,6 @@ const Main = () => {
           {FoodListData.map(({ id, index, src, alt }) => {
             return <S.ContentImg key={index} id={id} src={src} alt={alt} />;
           })}
-          ;
         </S.ContentContainer>
       </S.ListContainer>
 
@@ -54,7 +52,6 @@ const Main = () => {
           {ArtListData.map(({ id, index, src, alt }) => {
             return <S.ContentImg key={index} id={id} src={src} alt={alt} />;
           })}
-          ;
         </S.ContentContainer>
       </S.ListContainer>
     </S.MainWrapper>

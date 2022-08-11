@@ -4,6 +4,14 @@ export const MainWrapper = styled.main`
   width: 100%;
   color: ${({ theme }) => theme.white};
 `;
+export const SliderContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 400px;
+  padding: 0 20px;
+  background-color: ${({ theme }) => theme.black};
+`;
 export const ListContainer = styled.section`
   display: flex;
   flex-direction: column;
@@ -11,7 +19,7 @@ export const ListContainer = styled.section`
   height: 400px;
   padding: 0 20px;
   background-color: ${({ theme }) => theme.black};
-  border-bottom: ${({ theme }) => theme.listBottomLine};
+  border-top: ${({ theme }) => theme.listBottomLine};
 `;
 export const SliderContent = styled.section`
   display: flex;
@@ -38,12 +46,12 @@ export const ContentContainer = styled.div`
   justify-content: space-between;
 `;
 export const ContentImg = styled.img`
-  width: 290px;
+  width: 300px;
   height: 250px;
   padding-right: 12px;
   cursor: pointer;
-  &:hover {
+  /* &:hover {
     width: 390px;
     height: 350px;
-  }
+  } */
 `;

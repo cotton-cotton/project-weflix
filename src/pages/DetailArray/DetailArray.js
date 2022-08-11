@@ -8,7 +8,7 @@ import { NatureNormalSecondList } from './DetailArrayData';
 const DetailArray = () => {
   return (
     <S.MainWrapper>
-      <S.ListContainer>
+      <S.MainContainer>
         <S.Category>최근 뜨는 콘텐츠 &nbsp;</S.Category>
         <S.ContentContainer>
           {NaturePublicList.map(({ id, index, src, alt, title }) => {
@@ -19,9 +19,8 @@ const DetailArray = () => {
               </S.VideoContainer>
             );
           })}
-          ;
         </S.ContentContainer>
-      </S.ListContainer>
+      </S.MainContainer>
       <S.ListContainer>
         <S.Category>TOP 100&nbsp;</S.Category>
         <S.ContentContainer>
@@ -33,11 +32,10 @@ const DetailArray = () => {
               </S.VideoContainer>
             );
           })}
-          ;
         </S.ContentContainer>
       </S.ListContainer>
       <S.ListContainer>
-        <S.Category>당신의 맞춤 컨텐츠&nbsp;</S.Category>
+        <S.Category>당신을 위한 맞춤 컨텐츠&nbsp;</S.Category>
         <S.ContentContainer>
           {NatureNormalList.map(({ id, index, src, alt, title }) => {
             return (
@@ -47,7 +45,6 @@ const DetailArray = () => {
               </S.VideoContainer>
             );
           })}
-          ;
         </S.ContentContainer>
       </S.ListContainer>
       <S.ListContainer>
@@ -60,7 +57,6 @@ const DetailArray = () => {
               </S.VideoContainer>
             );
           })}
-          ;
         </S.ContentContainer>
       </S.ListContainer>
     </S.MainWrapper>
