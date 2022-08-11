@@ -68,6 +68,7 @@ const SignUp = () => {
           })}
           <S.ButtonContainer>
             <S.SignUpButton
+              type="button"
               disabled={isActiveForm ? true : false}
               isActiveForm={isActiveForm}
             >
