@@ -34,12 +34,14 @@ export const SignInButton = styled.button`
   justify-content: center;
   width: 95%;
   height: 50px;
-  color: ${({ theme }) => theme.white};
-  background-color: ${({ theme }) => theme.mainBlue};
   font-size: ${({ theme }) => theme.medium};
   letter-spacing: 1px;
   border-radius: 5px;
   border: none;
+  background-color: ${({ isActiveForm }) =>
+    isActiveForm ? '#4E68B5' : '#7f7b7b'};
+  color: ${({ isActiveForm }) => (isActiveForm ? '#fff' : '#222')};
+  cursor: ${({ isActiveForm }) => (isActiveForm ? 'pointer' : null)};
 `;
 export const CheckboxContainer = styled.div`
   display: flex;
