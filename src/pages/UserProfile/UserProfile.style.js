@@ -38,7 +38,8 @@ export const Image = styled.div`
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
-  background-color: ${({ theme }) => theme.mainBlue};
+  background-color: ${({ name, theme }) =>
+    name === '키즈' ? '#f7df80' : theme.mainBlue};
   border-radius: 3px;
   cursor: pointer;
   &:hover {
