@@ -74,3 +74,5 @@ export const Personal = styled.input`
 export const CheckboxContent = styled.p`
   color: ${({ theme }) => theme.lightGray};
 `;
+export const testContainer = styled.div``;
+export const test = styled.p``;

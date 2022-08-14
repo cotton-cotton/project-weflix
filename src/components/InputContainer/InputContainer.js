@@ -7,10 +7,13 @@ const InputContainer = ({
   name,
   placeholder,
   onChange,
-  onFocus,
-  onBlur,
+  message,
+  isValidLetter,
+  isConfirmPassword,
+  isActiveForm,
 }) => {
   const [focus, setFocus] = useState('');
+  const [letterMessage, setLetterMessage] = useState(false);
 
   const isFocusBorder = id => {
     setFocus(id);
@@ -24,10 +27,17 @@ const InputContainer = ({
         type={type}
         placeholder={placeholder}
         onChange={onChange}
-        onFocus={() => isFocusBorder(id)}
-        onBlur={() => setFocus('')}
+        onFocus={() => {
+          isFocusBorder(id);
+          setLetterMessage(true);
+        }}
+        onBlur={() => {
+          setFocus('');
+          setLetterMessage(false);
+        }}
         focus={focus}
       />
+      {letterMessage && !isValidLetter ? <S.test>{message}</S.test> : null}
     </S.InputContainer>
   );
 };

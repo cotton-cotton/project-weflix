@@ -10,7 +10,7 @@ const SignUp = () => {
     userPassword: '',
     userPasswordConfirm: '',
   });
-
+  const [focusValue, setFocusValue] = useState(false);
   const [checkboxActive, setCheckboxActive] = useState(false);
 
   const { userName, userEmail, userPassword, userPasswordConfirm } = inputValue;
@@ -55,15 +55,21 @@ const SignUp = () => {
           <S.Title>회원가입</S.Title>
           {SignUpData.map((list, index) => {
             return (
-              <InputContainer
-                key={index}
-                id={list.id}
-                name={list.name}
-                placeholder={list.placeholder}
-                text={list.text}
-                type={list.type}
-                onChange={handleInput}
-              />
+              <S.testContainer key={index}>
+                <InputContainer
+                  key={index}
+                  id={list.id}
+                  name={list.name}
+                  placeholder={list.placeholder}
+                  text={list.text}
+                  type={list.type}
+                  message={list.message}
+                  onChange={handleInput}
+                  // onFocus={console.log('123')}
+                  // onBlur={() => console.log('456')}
+                />
+                {/* {focusValue ? null : <S.test>{list.message}</S.test>} */}
+              </S.testContainer>
             );
           })}
           <S.ButtonContainer>
