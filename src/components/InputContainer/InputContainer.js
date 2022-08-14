@@ -9,8 +9,6 @@ const InputContainer = ({
   onChange,
   message,
   isValidLetter,
-  isConfirmPassword,
-  isActiveForm,
 }) => {
   const [focus, setFocus] = useState('');
   const [letterMessage, setLetterMessage] = useState(false);
