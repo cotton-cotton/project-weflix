@@ -22,7 +22,7 @@ const SignUp = () => {
       [name]: value,
     });
   };
-
+  //console.log(inputValue);
   const isValidLetter =
     userName.length >= 1 &&
     userEmail.length >= 1 &&
