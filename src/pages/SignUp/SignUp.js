@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import * as S from '../SignUp/SignUp.style';
 import InputContainer from '../../components/InputContainer/InputContainer';
 import { SignUpData } from '../SignUp/SignUpData';
+import API from '../Config/Config';
 
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { ThemeConsumer } from 'styled-components';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -15,13 +17,14 @@ const SignUp = () => {
     userPassword: '',
     userPasswordConfirm: '',
   });
+
+  const { userName, userEmail, userPassword, userPasswordConfirm } = inputValue;
+
   const [focusValue, setFocusValue] = useState(false);
   const [checkboxActive, setCheckboxActive] = useState(false);
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
-  const { userName, userEmail, userPassword, userPasswordConfirm } = inputValue;
 
   const handleInput = event => {
     const { name, value } = event.target;
@@ -56,29 +59,25 @@ const SignUp = () => {
   //   isConfirmPassword &&
   //   checkboxActive;
 
-  // const fetchUsers = async () => {
-  //   try {
-  //     // 요청이 시작할때 error와 users를 초기화
-  //     setError(null);
-  //     setUsers(null);
-  //     // loading 상태는 true로 변경
-  //     setLoading(true);
+  const URL = 'http://172.30.1.8:3000/users/signup';
 
-  //     const response = await axios
-  //       .get
-  //       // 코드
-  //       ();
-  //     //데이터는 response.data 안에 들어있음
-  //     setUsers(response.data);
-  //   } catch (e) {
-  //     setError(e);
-  //   }
-  //   setLoading(false);
-  // };
-  // const URL = '172.30.1.4:8000/user/signup';
-  // console.log(inputValue);
-  // const fetchUsers = () => {
-  //   console.log(URL);
+  const handleData = () => {
+    axios
+      .post(API.SIGN_UP, {
+        name: userName,
+        email: userEmail,
+        password: userPassword,
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  // const handleFetch = () => {
+  //   console.log('test');
   //   fetch(URL, {
   //     method: 'POST',
   //     body: JSON.stringify({
@@ -90,49 +89,12 @@ const SignUp = () => {
   //     .then(res => res.json())
   //     .then(result => {
   //       if (result.message) {
-  //         console.log('성공');
+  //         console.log('성공', result);
   //       } else {
   //         console.log('실패');
   //       }
   //     });
   // };
-
-  // const fetchUsers = () => {
-  //   if (!isActiveForm) {
-  //     // alert('빈칸을 모두 채워주세요.');
-  //   } else
-
-  //   axios({
-  //     url: '172.30.1.4:8000/users/signup',
-  //     method: 'post',
-  //     data: {
-  //       name: userName,
-  //       email: userEmail,
-  //       password: userPassword,
-  //       //passwordConfirm: userPasswordConfirm,
-  //     },
-  //   })
-  //   axios
-  //     .post(URL, {
-  //       name: userName,
-  //       email: userEmail,
-  //       password: userPassword,
-  //       //passwordConfirm: userPasswordConfirm,
-  //     })
-  //     .then(function (response) {
-  //       console.log('성공');
-  //       navigate('/signup');
-  //     })
-  //     .catch(function (error) {
-  //       console.log('실패');
-  //       // alert('잘못된 정보입니다!');
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   fetchUsers();
-  // }, []);
-
   return (
     <S.SignUpWrapper>
       <S.SignUpContainer>
@@ -160,7 +122,7 @@ const SignUp = () => {
           <S.ButtonContainer>
             <S.SignUpButton
               type="button"
-              // onClick={fetchUsers}
+              onClick={handleData}
               // disabled={isActiveForm ? true : false}
               // isActiveForm={isActiveForm}
             >
