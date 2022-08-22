@@ -23,10 +23,9 @@ export const Title = styled.p`
 export const ImageContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  width: 28%;
-  height: 50%;
+  align-items: center;
 `;
-export const ProfileImg = styled.div`
+export const ProfileAdd = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,6 +50,7 @@ export const Name = styled.p`
   font-size: ${({ theme }) => theme.medium};
   font-weight: ${({ theme }) => theme.normal};
   letter-spacing: 2px;
+  text-align: center;
 `;
 export const Add = styled.button`
   display: flex;

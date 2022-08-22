@@ -1,32 +1,41 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { UserContext } from '../../pages/AddProfile/AddProfile';
-import UserList from '../../pages/AddProfile/UserList';
 
-const ProfileBox = ({ users, onCreate, onChange, profileName }) => {
-  const user = useContext(UserContext);
-  console.log(user);
-  //console.log(users);
-  // return (
-  //   <>
-  //     {user.map((list, index) => {
-  //       return (
-  //         <ProfileBoxWrapper key={index}>
-  //           <ProfileImg />
-  //           <Name>{list.userName}</Name>
-  //         </ProfileBoxWrapper>
-  //       );
-  //     })}
-  //   </>
-  // );
+const ProfileBox = ({ key, id, userName, background, imo }) => {
+  return (
+    <ProfileBoxWrapper key={key}>
+      <ProfileImg key={key} id={id} background={background}>
+        <Imo>{imo}</Imo>
+      </ProfileImg>
+      <Name>{userName}</Name>
+    </ProfileBoxWrapper>
+  );
 };
 
-const ProfileBoxWrapper = styled.div``;
+const ProfileBoxWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  height: 100%;
+`;
+const Imo = styled.div``;
 const ProfileImg = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 150px;
   height: 150px;
-  background-color: teal;
+  margin-bottom: 20px;
+  background-color: ${({ background }) => background};
 `;
-const Name = styled.p``;
+const Name = styled.p`
+  color: ${({ theme }) => theme.lightGray};
+  font-size: ${({ theme }) => theme.medium};
+  font-weight: ${({ theme }) => theme.normal};
+  letter-spacing: 2px;
+  text-align: center;
+`;
 
 export default ProfileBox;

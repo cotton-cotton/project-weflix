@@ -51,10 +51,16 @@ export const Image = styled.div`
   background-color: ${({ theme }) => theme.mainBlue};
   border-radius: 3px;
 `;
+export const InputContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
+`;
 export const Name = styled.input`
   width: 400px;
   height: 45px;
-  margin-right: 10px;
+  margin-rignt: 10px;
   padding: 5px 0 0 10px;
   background-color: ${({ theme }) => theme.middleGray};
   border: none;
@@ -65,6 +71,7 @@ export const Name = styled.input`
     color: ${({ theme }) => theme.lightGray};
   }
 `;
+export const Message = styled.p``;
 export const CheckContainer = styled.div`
   display: flex;
   align-items: center;
