@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import * as S from './SignIn.style';
 import InputContainer from '../../components/InputContainer/InputContainer';
 import { SignInData } from '../SignIn/SignInData';
+import axios from 'axios';
+import API from '../Config/Config';
 
 const SignIn = () => {
   const [inputValue, setInputValue] = useState({
@@ -19,15 +21,30 @@ const SignIn = () => {
     });
   };
 
-  const isValidLetter = userEmail.length >= 1 && userPassword.length >= 1;
+  // const isValidLetter = userEmail.length >= 1 && userPassword.length >= 1;
 
-  const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
-  const passwordReg = new RegExp(
-    '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
-  );
+  // const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
+  // const passwordReg = new RegExp(
+  //   '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
+  // );
 
-  const isActiveForm =
-    emailReg.test(userEmail) && passwordReg.test(userPassword) && isValidLetter;
+  // const isActiveForm =
+  //   emailReg.test(userEmail) && passwordReg.test(userPassword) && isValidLetter;
+  const URL = 'http://172.30.1.8:3000/users/login';
+
+  const handleData = () => {
+    axios
+      .post(API.SIGN_IN, {
+        email: userEmail,
+        password: userPassword,
+      })
+      .then(res => {
+        console.log(res.data.data.token);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   return (
     <S.SignInWrapper>
@@ -50,8 +67,9 @@ const SignIn = () => {
           <S.ButtonContainer>
             <S.SignInButton
               type="button"
-              disabled={isActiveForm ? true : false}
-              isActiveForm={isActiveForm}
+              onClick={handleData}
+              // disabled={isActiveForm ? true : false}
+              // isActiveForm={isActiveForm}
             >
               로그인
             </S.SignInButton>
