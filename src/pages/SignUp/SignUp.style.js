@@ -38,12 +38,10 @@ export const SignUpButton = styled.button`
   letter-spacing: 1px;
   border-radius: 5px;
   border: none;
-  /* background-color: ${({ isActiveForm }) =>
+  background-color: ${({ isActiveForm }) =>
     isActiveForm ? '#4E68B5' : '#7f7b7b'};
   color: ${({ isActiveForm }) => (isActiveForm ? '#fff' : '#222')};
-  cursor: ${({ isActiveForm }) => (isActiveForm ? 'pointer' : null)}; */
-  background-color: blue;
-  cursor: pointer;
+  cursor: ${({ isActiveForm }) => (isActiveForm ? 'pointer' : null)};
 `;
 export const CheckboxContainer = styled.div`
   display: flex;

@@ -6,7 +6,6 @@ import API from '../Config/Config';
 
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { ThemeConsumer } from 'styled-components';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -18,13 +17,13 @@ const SignUp = () => {
     userPasswordConfirm: '',
   });
 
-  const { userName, userEmail, userPassword, userPasswordConfirm } = inputValue;
-
   const [focusValue, setFocusValue] = useState(false);
   const [checkboxActive, setCheckboxActive] = useState(false);
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const { userName, userEmail, userPassword, userPasswordConfirm } = inputValue;
 
   const handleInput = event => {
     const { name, value } = event.target;
@@ -33,68 +32,65 @@ const SignUp = () => {
       [name]: value,
     });
   };
-  //console.log(inputValue);
+
   const isValidLetter =
     userName.length >= 1 &&
     userEmail.length >= 1 &&
     userPassword.length >= 1 &&
     userPasswordConfirm.length >= 1;
 
-  // const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
-  // const passwordReg = new RegExp(
-  //   '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
-  // );
+  const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
+  const passwordReg = new RegExp(
+    '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
+  );
 
-  // const isConfirmPassword =
-  //   inputValue.userPassword === inputValue.userPasswordConfirm;
+  const isConfirmPassword =
+    inputValue.userPassword === inputValue.userPasswordConfirm;
 
-  // const isCheckboxActive = () => {
-  //   setCheckboxActive(!checkboxActive);
-  // };
-
-  // const isActiveForm =
-  //   emailReg.test(userEmail) &&
-  //   passwordReg.test(userPassword) &&
-  //   isValidLetter &&
-  //   isConfirmPassword &&
-  //   checkboxActive;
-
-  const URL = 'http://172.30.1.8:3000/users/signup';
-
-  const handleData = () => {
-    axios
-      .post(API.SIGN_UP, {
-        name: userName,
-        email: userEmail,
-        password: userPassword,
-      })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  const isCheckboxActive = () => {
+    setCheckboxActive(!checkboxActive);
   };
 
-  // const handleFetch = () => {
-  //   console.log('test');
-  //   fetch(URL, {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       name: inputValue.userName,
-  //       email: inputValue.userEmail,
-  //       password: inputValue.userPassword,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => {
-  //       if (result.message) {
-  //         console.log('성공', result);
-  //       } else {
-  //         console.log('실패');
-  //       }
+  const isActiveForm =
+    // emailReg.test(userEmail) &&
+    // passwordReg.test(userPassword) &&
+    isValidLetter && isConfirmPassword && checkboxActive;
+  console.log(isActiveForm);
+  // const handleData = () => {
+  //   axios
+  //     .post(API.SIGN_UP, {
+  //       name: userName,
+  //       email: userEmail,
+  //       password: userPassword,
+  //     })
+  //     .then(res => {
+  //       //navigate('/signin');
+  //       console.log(res);
+  //     })
+  //     .catch(error => {
+  //       alert(error);
   //     });
-  // };
+  //};
+
+  const handleFetch = () => {
+    console.log('test');
+    fetch(URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: inputValue.userName,
+        email: inputValue.userEmail,
+        password: inputValue.userPassword,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message) {
+          console.log('성공', result);
+        } else {
+          console.log('실패');
+        }
+      });
+  };
   return (
     <S.SignUpWrapper>
       <S.SignUpContainer>
@@ -122,9 +118,9 @@ const SignUp = () => {
           <S.ButtonContainer>
             <S.SignUpButton
               type="button"
-              onClick={handleData}
-              // disabled={isActiveForm ? true : false}
-              // isActiveForm={isActiveForm}
+              //onClick={handleData}
+              disabled={isActiveForm ? true : false}
+              isActiveForm={isActiveForm}
             >
               회원가입
             </S.SignUpButton>
@@ -134,8 +130,8 @@ const SignUp = () => {
           <S.PolicyAgree>
             <S.Policy
               type="checkbox"
-              // onClick={isCheckboxActive}
-              // isCheckboxActive={isCheckboxActive}
+              onClick={isCheckboxActive}
+              isCheckboxActive={isCheckboxActive}
             />
             <S.CheckboxContent>
               개인정보 수집 이용에 동의합니다.
