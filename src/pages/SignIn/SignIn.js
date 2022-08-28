@@ -4,8 +4,11 @@ import InputContainer from '../../components/InputContainer/InputContainer';
 import { SignInData } from '../SignIn/SignInData';
 import axios from 'axios';
 import API from '../Config/Config';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const [inputValue, setInputValue] = useState({
     userEmail: '',
     userPassword: '',
@@ -30,7 +33,6 @@ const SignIn = () => {
 
   // const isActiveForm =
   //   emailReg.test(userEmail) && passwordReg.test(userPassword) && isValidLetter;
-  const URL = 'http://172.30.1.8:3000/users/login';
 
   const handleData = () => {
     axios
@@ -39,10 +41,11 @@ const SignIn = () => {
         password: userPassword,
       })
       .then(res => {
+        navigate('/');
         console.log(res.data.data.token);
       })
       .catch(error => {
-        console.log(error);
+        alert(error);
       });
   };
 
