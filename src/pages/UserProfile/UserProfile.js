@@ -3,20 +3,15 @@ import * as S from './UserProfile.style';
 import { Link } from 'react-router-dom';
 import ProfileBox from '../../components/ProfileBox/ProfileBox';
 import { IoMdAddCircle } from 'react-icons/io';
-import { ProfileListData } from '../AddProfile/AddProfile';
+import { ProfileList } from '../AddProfile/AddProfile';
+import { BsPencilSquare } from 'react-icons/bs';
 
-export const ProfileData = [
+export let ProfileListData = [
   {
     id: 1,
-    userName: '키즈',
-    background: '#f7df80',
-    // imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
-  },
-  {
-    id: 2,
     userName: '나니부',
     background: '#80b6f7',
-    // imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
+    imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
   },
 ];
 
@@ -24,48 +19,34 @@ const UserProfile = () => {
   const [profileName, setProfileName] = useState({
     userName: '',
   });
-  const { userName } = profileName;
-  // const [profile, setProfile] = useState(context.submitProfile);
-  // const [test, setTest] = useState(context);
-  // console.log(test);
-  //const [profile, setProfile] = useState(false);
+
   const data = localStorage.getItem('user');
-  //console.log(data);
+  let list;
+  let arr;
+  if (data) {
+    const parsedData = JSON.parse(data);
+    list = parsedData;
+    arr = ProfileListData.concat(list);
+    // ProfileListData = ProfileListData.concat(list);
+  } else if (!data) {
+    arr = ProfileListData;
+  }
+  console.log(list);
+  console.log(arr);
 
-  const [test, setTest] = useState(ProfileData);
-  const onCreateProflie = () => {
-    const user = {
-      userName: data,
-      background: '#fff',
-    };
-
-    setTest([...test, user]);
-
-    setProfileName({
-      userName: '',
-      background: '',
-    });
-  };
-
-  useEffect(() => {
-    onCreateProflie();
-  }, [data]);
-
-  //console.log(test);
-  //console.log(profileName);
   return (
     <S.SelectWrapper>
       <S.ProfileContainer>
         <S.Title>프로필 관리</S.Title>
         <S.ImageContainer>
-          {test.map((list, index) => {
+          {arr.map((list, index) => {
             return (
               <ProfileBox
                 key={index}
                 id={list.id}
                 userName={list.userName}
                 background={list.background}
-                imo={list.imo}
+                //imo={list.imo}
               />
             );
           })}
