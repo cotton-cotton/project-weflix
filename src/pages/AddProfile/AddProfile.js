@@ -1,17 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as S from '../AddProfile/AddProfile.style';
-import ProfileBox from '../../components/ProfileBox/ProfileBox';
-import { Link, useResolvedPath } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { RiStarSmileLine } from 'react-icons/ri';
 import { Navigate, useNavigate } from 'react-router-dom';
-
 import { BsPencilSquare } from 'react-icons/bs';
 
-export const ProfileList = [];
+export let ProfileList = [
+  // {
+  //   id: 1,
+  //   userName: '나니부',
+  //   background: '#80b6f7',
+  //   //imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
+  // },
+];
 
-const backgroundList = ['#80b6f7', '#f7d0b7', '#c3a2f2', '#80f7d9', '#f7b7f6'];
-const randomColor =
-  backgroundList[Math.floor(Math.random() * backgroundList.length)];
+// const backgroundList = ['#80b6f7', '#f7d0b7', '#c3a2f2', '#80f7d9', '#f7b7f6'];
+// const randomColor =
+//   backgroundList[Math.floor(Math.random() * backgroundList.length)];
 
 const AddProfile = () => {
   const navigate = useNavigate();
@@ -34,14 +39,13 @@ const AddProfile = () => {
   const [users, setUsers] = useState(ProfileList);
   const nextId = useRef(2);
 
-  const onCreate = () => {
+  const onCreate = event => {
     const user = {
       id: nextId.current,
       userName: userName,
-      background: randomColor,
-      imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
+      background: '#f7d0b7',
+      //imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
     };
-
     setUsers([...users, user]);
 
     setProfileName({
@@ -49,24 +53,12 @@ const AddProfile = () => {
       background: '',
       imo: '',
     });
-    nextId.current = nextId.current + 1;
+    nextId.current += 1;
+
     ProfileList.push(user);
-    console.log(user);
     localStorage.setItem('user', JSON.stringify(ProfileList));
-    // console.log(test);
-    //localStorage.setItem('user', JSON.stringify(ProfileListData));
     navigate('/profile/user');
   };
-
-  console.log(ProfileList);
-
-  // const onData = () => {
-  //   localStorage.setItem('user', JSON.stringify(ProfileListData));
-  // };
-  // useEffect(() => {
-  //   onData();
-  // }, [test]);
-  //console.log(test);
 
   const onValidMessage = event => {
     // if (userName.length === 1) {
