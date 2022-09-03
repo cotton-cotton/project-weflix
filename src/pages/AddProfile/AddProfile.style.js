@@ -60,7 +60,7 @@ export const InputContainer = styled.form`
 export const Name = styled.input`
   width: 400px;
   height: 45px;
-  margin-rignt: 10px;
+  margin-right: 10px;
   padding: 5px 0 0 10px;
   background-color: ${({ theme }) => theme.middleGray};
   border: none;

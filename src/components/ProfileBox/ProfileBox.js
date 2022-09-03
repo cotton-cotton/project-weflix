@@ -1,10 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import { TiDeleteOutline } from 'react-icons/ti';
+import { arr } from '../../pages/UserProfile/UserProfile';
 
-const ProfileBox = ({ key, id, userName, background, imo }) => {
+const ProfileBox = ({ key, id, userName, background, imo, onClick }) => {
+  // const onRemove = data => {
+  //   console.log(data);
+  //   arr.filter(el => el.userName !== data);
+  // };
+  // console.log(arr);
   return (
     <ProfileBoxWrapper key={key}>
       <ProfileImg key={key} id={id} background={background}>
+        <DeleteBtn onClick={onClick}>
+          <TiDeleteOutline size="20" />
+        </DeleteBtn>
         <Imo>{imo}</Imo>
       </ProfileImg>
       <Name>{userName}</Name>
@@ -13,6 +23,7 @@ const ProfileBox = ({ key, id, userName, background, imo }) => {
 };
 
 const ProfileBoxWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +31,7 @@ const ProfileBoxWrapper = styled.div`
   padding: 0 10px;
   height: 100%;
 `;
+
 const Imo = styled.div``;
 const ProfileImg = styled.div`
   display: flex;
@@ -29,6 +41,18 @@ const ProfileImg = styled.div`
   height: 150px;
   margin-bottom: 20px;
   background-color: ${({ background }) => background};
+`;
+const DeleteBtn = styled.button`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  outline: none;
+  border: none;
+  background: none;
+  &:hover {
+    transform: scale(1.4);
+    cursor: pointer;
+  }
 `;
 const Name = styled.p`
   color: ${({ theme }) => theme.lightGray};
