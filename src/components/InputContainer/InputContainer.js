@@ -8,7 +8,10 @@ const InputContainer = ({
   placeholder,
   onChange,
   message,
-  isValidLetter,
+  nameVal,
+  emailVal,
+  passwordVal,
+  confirmVal,
 }) => {
   const [focus, setFocus] = useState('');
   const [letterMessage, setLetterMessage] = useState(false);
@@ -35,7 +38,12 @@ const InputContainer = ({
         }}
         focus={focus}
       />
-      {letterMessage && !isValidLetter ? <S.test>{message}</S.test> : null}
+      {!nameVal && letterMessage ? <S.test>{message.name}</S.test> : null}
+      {!emailVal && letterMessage ? <S.test>{message.email}</S.test> : null}
+      {!passwordVal && letterMessage ? (
+        <S.test>{message.password}</S.test>
+      ) : null}
+      {/* {!confirmVal && letterMessage ? <S.test>{message.confirm}</S.test> : null} */}
     </S.InputContainer>
   );
 };
