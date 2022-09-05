@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TiDeleteOutline } from 'react-icons/ti';
-import { arr } from '../../pages/UserProfile/UserProfile';
 
 const ProfileBox = ({ key, id, userName, background, imo, onClick }) => {
   // const onRemove = data => {

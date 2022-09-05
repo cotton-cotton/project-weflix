@@ -45,11 +45,11 @@ export const Image = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 130px;
+  /* width: 130px;
   height: 130px;
   margin-right: 20px;
   background-color: ${({ theme }) => theme.mainBlue};
-  border-radius: 3px;
+  border-radius: 3px; */
 `;
 export const InputContainer = styled.form`
   display: flex;
