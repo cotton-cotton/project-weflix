@@ -1,17 +1,21 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, createContext } from 'react';
 import * as S from '../AddProfile/AddProfile.style';
+import ProfileData from '../../components/ProfileData/ProfileData';
+import OriginProfile from '../../components/OriginProfile/OriginProfile';
 import { Link } from 'react-router-dom';
 import { RiStarSmileLine } from 'react-icons/ri';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { BsPencilSquare } from 'react-icons/bs';
 
-export let ProfileList = [
-  // {
-  //   id: 1,
-  //   userName: '나니부',
-  //   background: '#80b6f7',
-  //   //imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
-  // },
+export const ProfileContext = createContext();
+
+const ProfileList = [
+  {
+    id: 1,
+    userName: '나니부',
+    background: '#80b6f7',
+    //imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
+  },
 ];
 
 // const backgroundList = ['#80b6f7', '#f7d0b7', '#c3a2f2', '#80f7d9', '#f7b7f6'];
@@ -87,7 +91,10 @@ const AddProfile = () => {
           </S.TitleContainer>
           <S.ProfileContainer>
             <S.Image>
-              <RiStarSmileLine size="80" color="#fff" />
+              {/* <ProfileContext.Provider value={{ ProfileList }}>
+                <OriginProfile />
+              </ProfileContext.Provider> */}
+              {/* <RiStarSmileLine size="80" color="#fff" /> */}
             </S.Image>
             <S.InputContainer>
               <S.Name

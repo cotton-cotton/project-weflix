@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as S from './UserProfile.style';
 import { Link } from 'react-router-dom';
 import ProfileBox from '../../components/ProfileBox/ProfileBox';
+import ProfileData from '../../components/ProfileData/ProfileData';
 import { IoMdAddCircle } from 'react-icons/io';
 import { BsPencilSquare } from 'react-icons/bs';
 import { ProfileList } from '../AddProfile/AddProfile';
@@ -36,6 +37,11 @@ const UserProfile = () => {
   const onRemove = (event, userName) => {
     localStorage.removeItem('user');
     arr = arr.filter(el => el.userName !== userName);
+  };
+
+  const [num, setNum] = useState(0);
+  const parentFuc = num => {
+    setNum(num);
   };
 
   return (
