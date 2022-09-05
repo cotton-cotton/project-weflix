@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as S from '../SignUp/SignUp.style';
 import InputContainer from '../../components/InputContainer/InputContainer';
+import ValidMessage from '../../components/ValMessage/ValMessage';
 import { SignUpData } from '../SignUp/SignUpData';
 import API from '../Config/Config';
 
@@ -17,12 +18,11 @@ const SignUp = () => {
     userPasswordConfirm: '',
   });
 
-  const [focusValue, setFocusValue] = useState(false);
   const [checkboxActive, setCheckboxActive] = useState(false);
-  const [users, setUsers] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [val, setVal] = useState(false);
+  const [nameVal, setNameVal] = useState(false);
+  const [emailVal, setEmailVal] = useState(false);
+  const [passwordVal, setPasswordVal] = useState(false);
+  const [confirmVal, setConfirmVal] = useState(false);
 
   const { userName, userEmail, userPassword, userPasswordConfirm } = inputValue;
 
@@ -45,8 +45,17 @@ const SignUp = () => {
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
   );
   // 특수문자, 숫자, 소문자, 대문자 포함 8자 이상
-  const isConfirmPassword = userPassword === userPasswordConfirm;
 
+  // const isConfirmPassword =
+  //   userPassword === userPasswordConfirm && userPasswordConfirm.length > 1;
+  // console.log(isConfirmPassword);
+
+  // const test = () => {
+  //   if (isConfirmPassword) {
+  //     setConfirmVal(true);
+  //   }
+  // };
+  // console.log(confirmVal);
   const isCheckboxActive = () => {
     setCheckboxActive(!checkboxActive);
   };
@@ -54,16 +63,45 @@ const SignUp = () => {
     emailReg.test(userEmail) &&
     passwordReg.test(userPassword) &&
     isValidLetter &&
-    isConfirmPassword &&
+    confirmVal &&
     checkboxActive;
 
   const nameValidation = event => {
-    console.log(event.target.value);
-    if (event.target.value.length > 1) {
-      setVal(true);
+    const inputVal = event.target.value;
+    if (inputVal.length > 1) {
+      setNameVal(true);
+    } else if (inputVal.length <= 1) {
+      setNameVal(false);
     }
   };
-  console.log(val);
+  const emailValidation = event => {
+    const inputVal = event.target.value;
+    if (emailReg.test(inputVal)) {
+      setEmailVal(true);
+    } else if (!emailReg.test(inputVal)) {
+      setEmailVal(false);
+    }
+  };
+  const passwordValidation = event => {
+    const inputVal = event.target.value;
+    if (passwordReg.test(inputVal)) {
+      setPasswordVal(true);
+    } else if (!passwordReg.test(inputVal)) {
+      setPasswordVal(false);
+    }
+  };
+  // const confirmValidation = () => {
+  //   if (
+  //     userPassword === userPasswordConfirm &&
+  //     userPasswordConfirm.length > 1
+  //   ) {
+  //     setConfirmVal(true);
+  //   }
+  // };
+  // console.log(confirmVal);
+  console.log(userPassword);
+  console.log(userPasswordConfirm);
+  //console.log(val);
   // const emailValidaiont = () => {
   //   emailReg.test(userEmail);
   // }
@@ -130,11 +168,14 @@ const SignUp = () => {
                   onChange={event => {
                     handleInput(event);
                     nameValidation(event);
+                    emailValidation(event);
+                    passwordValidation(event);
                   }}
-                  // onFocus={console.log('123')}
-                  // onBlur={() => console.log('456')}
+                  nameVal={nameVal}
+                  emailVal={emailVal}
+                  passwordVal={passwordVal}
+                  confirmVal={confirmVal}
                 />
-                {/* {focusValue ? null : <S.test>{list.message}</S.test>} */}
               </S.testContainer>
             );
           })}
