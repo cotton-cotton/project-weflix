@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import UserProfile from '../../pages/UserProfile/UserProfile';
+import AddProfile from '../../pages/AddProfile/AddProfile';
 
-const ProfileData = ({ ProfileList, parentFuc }) => {
-  const [data, setData] = useState(2);
-  console.log(parentFuc);
-  console.log(ProfileList);
-  // const test = () => {
-  //   parentFuc();
-  // };
-  // test();
-  return <DataContainer />;
+const ProfileData = () => {
+  const ProfileListData = [
+    {
+      id: 1,
+      userName: '나니부',
+      background: '#80b6f7',
+      //imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
+    },
+  ];
+  const [test, setTest] = useState(ProfileListData);
+  console.log('123');
+  console.log(test);
+  return (
+    <>
+      <AddProfile test={test} />
+      {/* <UserProfile ProfileListData={ProfileListData} /> */}
+    </>
+  );
 };
-
-const DataContainer = styled.div``;
 
 export default ProfileData;

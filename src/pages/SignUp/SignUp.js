@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from '../SignUp/SignUp.style';
 import InputContainer from '../../components/InputContainer/InputContainer';
-import ValidMessage from '../../components/ValMessage/ValMessage';
 import { SignUpData } from '../SignUp/SignUpData';
 import API from '../Config/Config';
 

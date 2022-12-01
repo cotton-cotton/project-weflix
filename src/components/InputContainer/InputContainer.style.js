@@ -21,4 +21,6 @@ export const Input = styled.input`
   border-bottom: ${({ id, focus }) =>
     focus === id ? '2px solid #4E68B5' : null};
 `;
-export const test = styled.p``;
+export const test = styled.p`
+  color: ${({ theme }) => theme.white};
+`;

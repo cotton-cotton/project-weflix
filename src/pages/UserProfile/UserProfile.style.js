@@ -25,6 +25,11 @@ export const ImageContainer = styled.section`
   justify-content: space-between;
   align-items: center;
 `;
+export const OriginProfileBox = styled.div`
+  width: 150px;
+  height: 150px;
+  background-color: teal;
+`;
 export const ProfileAdd = styled.div`
   display: flex;
   flex-direction: column;

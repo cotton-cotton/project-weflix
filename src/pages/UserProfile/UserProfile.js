@@ -7,7 +7,7 @@ import { IoMdAddCircle } from 'react-icons/io';
 import { BsPencilSquare } from 'react-icons/bs';
 import { ProfileList } from '../AddProfile/AddProfile';
 
-export let ProfileListData = [
+let ProfileListData = [
   {
     id: 1,
     userName: '나니부',
@@ -15,18 +15,22 @@ export let ProfileListData = [
     //imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
   },
 ];
-export let arr = [];
+let arr = [];
+let list = [];
 const UserProfile = () => {
+  let [test, setTest] = useState();
   const getData = localStorage.getItem('user');
 
   if (getData) {
     const parsedData = JSON.parse(getData);
-    ProfileListData.push(parsedData);
-    arr = ProfileListData.flat();
+    //ProfileListData.push(parsedData);
+    arr = ProfileListData.concat(parsedData);
   } else if (!getData) {
     arr = ProfileListData;
   }
-
+  // useEffect(() => {
+  //   console.log('test');
+  // }, [getData]);
   const preventProfile = event => {
     if (arr.length >= 3) {
       alert('프로필은 최대 3개까지 생성 가능합니다.');
@@ -36,31 +40,56 @@ const UserProfile = () => {
 
   const onRemove = (event, userName) => {
     localStorage.removeItem('user');
-    arr = arr.filter(el => el.userName !== userName);
+    // const parsedData = JSON.parse(getData);
+    // console.log(parsedData);
+    // if (getData) {
+    //   const parsedData = JSON.parse(getData);
+    //   //ProfileListData.push(parsedData);
+    //   arr = ProfileListData.concat(parsedData);
+    // } else if (!getData) {
+    //   arr = ProfileListData;
+    // }
+    window.location.replace('/profile/user');
+    console.log(arr);
   };
-
-  const [num, setNum] = useState(0);
-  const parentFuc = num => {
-    setNum(num);
-  };
-
+  //test = ProfileListData;
+  //console.log(ProfileListData);
+  // if (!getData) {
+  //   test = test;
+  // }
+  // console.log(test);
   return (
     <S.SelectWrapper>
       <S.ProfileContainer>
         <S.Title>프로필 관리</S.Title>
         <S.ImageContainer>
-          {arr.map((list, index) => {
-            return (
-              <ProfileBox
-                key={index}
-                id={list.id}
-                userName={list.userName}
-                background={list.background}
-                onClick={event => onRemove(event, list.userName, index)}
-                //imo={list.imo}
-              />
-            );
-          })}
+          {/* <S.OriginProfileBox /> */}
+          {
+            arr.map((list, index) => {
+              return (
+                <ProfileBox
+                  key={index}
+                  id={list.id}
+                  userName={list.userName}
+                  background={list.background}
+                  onClick={event => onRemove(event, list.userName, index)}
+                  //imo={list.imo}
+                />
+              );
+            })
+            // : test.map((list, index) => {
+            //     return (
+            //       <ProfileBox
+            //         key={index}
+            //         id={list.id}
+            //         userName={list.userName}
+            //         background={list.background}
+            //         onClick={event => onRemove(event, list.userName, index)}
+            //         //imo={list.imo}
+            //       />
+            //     );
+            //   })
+          }
           <S.ProfileAdd>
             <Link to="/profile/add" style={{ textDecoration: 'none' }}>
               <S.Add onClick={preventProfile}>

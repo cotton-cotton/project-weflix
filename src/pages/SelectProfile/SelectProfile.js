@@ -1,17 +1,26 @@
 import React from 'react';
 import * as S from '../SelectProfile/SelectProfile.style';
 import { TbMoodKid } from 'react-icons/tb';
+import { Link } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const SelectProfile = () => {
+  const navigate = useNavigate();
+
+  const detail = () => {
+    navigate('/content/list');
+  };
   return (
     <S.SelectWrapper>
       <S.SelectContainer>
         <S.Title>WEFLIX를 시청할 프로필을 선택하세요.</S.Title>
         <S.ImageContainer>
-          <S.ProfileImg>
-            <S.Image src="/images/assets/나.JPG" alt="profile" />
-            <S.Name>나니부</S.Name>
-          </S.ProfileImg>
+          <Link to="/content/list" style={{ textDecoration: 'none' }}>
+            <S.ProfileImg>
+              <S.Image src="/images/assets/나.JPG" alt="profile" />
+              <S.Name>나니부</S.Name>
+            </S.ProfileImg>
+          </Link>
           <S.ProfileImg>
             <S.Image src="/images/assets/목화.JPG" alt="profile" />
             <S.Name>목화</S.Name>
