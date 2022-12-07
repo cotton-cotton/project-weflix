@@ -45,16 +45,6 @@ const SignUp = () => {
   );
   // 특수문자, 숫자, 소문자, 대문자 포함 8자 이상
 
-  // const isConfirmPassword =
-  //   userPassword === userPasswordConfirm && userPasswordConfirm.length > 1;
-  // console.log(isConfirmPassword);
-
-  // const test = () => {
-  //   if (isConfirmPassword) {
-  //     setConfirmVal(true);
-  //   }
-  // };
-  // console.log(confirmVal);
   const isCheckboxActive = () => {
     setCheckboxActive(!checkboxActive);
   };
