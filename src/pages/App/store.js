@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 //import toDoReducer from './toDoListSlice';
+import profileReducer from './profileSlice';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    profile: profileReducer,
+  },
 });
 
 export default store;

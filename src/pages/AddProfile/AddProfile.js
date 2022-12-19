@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, createContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as S from '../AddProfile/AddProfile.style';
 import ProfileData from '../../components/ProfileData/ProfileData';
 import OriginProfile from '../../components/OriginProfile/OriginProfile';
@@ -7,23 +7,33 @@ import { RiStarSmileLine } from 'react-icons/ri';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { BsPencilSquare } from 'react-icons/bs';
 
-export const ProfileContext = createContext();
+import { useDispatch, useSelector } from 'react-redux';
+import { profileActions } from '../App/profileSlice';
 
 const ProfileList = [];
 
-// const backgroundList = ['#80b6f7', '#f7d0b7', '#c3a2f2', '#80f7d9', '#f7b7f6'];
-// const randomColor =
-//   backgroundList[Math.floor(Math.random() * backgroundList.length)];
+const backgroundList = ['#80b6f7', '#f7d0b7', '#c3a2f2', '#80f7d9', '#f7b7f6'];
 
 const AddProfile = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const profileBox = useSelector(state => state.profile.profileList);
 
   const [profileName, setProfileName] = useState({
     userName: '',
   });
 
-  const [validMessage, setValidMessage] = useState(false);
+  const [backgroundColor, setBackgroundColor] = useState({
+    background:
+      backgroundList[Math.floor(Math.random() * backgroundList.length)],
+  });
+
+  const [addProfile, setAddProfile] = useState([]);
+  const [validMessage, setValidMessage] = useState(true);
+
   const { userName } = profileName;
+  const { background } = backgroundColor;
+  const nextId = useRef(1);
 
   const onProfileInput = event => {
     const { name, value } = event.target;
@@ -34,43 +44,42 @@ const AddProfile = () => {
   };
 
   const [users, setUsers] = useState(ProfileList);
-  const nextId = useRef(2);
 
   const onCreate = event => {
     const user = {
       id: nextId.current,
       userName: userName,
-      background: '#f7d0b7',
-      //imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
+      background: background,
+      imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
     };
-    setUsers([...users, user]);
+
+    nextId.current += 1;
+
+    // //setUsers([...users, user]);
+    // setUsers(user);
 
     setProfileName({
       userName: '',
-      background: '',
-      imo: '',
     });
-    nextId.current += 1;
+    setBackgroundColor({
+      background: '',
+    });
 
-    ProfileList.push(user);
-    localStorage.setItem('user', JSON.stringify(ProfileList));
+    setAddProfile([...addProfile, user]);
+    dispatch(profileActions.addProfile({ data: user }));
     navigate('/profile/user');
   };
-
   const onValidMessage = event => {
-    // if (userName.length === 1) {
-    //   setValidMessage(true);
-    // } else if (userName.length >= 2) {
-    //   setValidMessage(false);
-    // } else if (userName.length === 0) {
-    //   setValidMessage(false);
-    // }
-    userName.length < 2 || userName.length === 0
-      ? setValidMessage(true)
-      : setValidMessage(false);
+    const nickName = event.target.value;
+    if (nickName.length >= 2) {
+      setValidMessage(true);
+    } else if (nickName.length <= 1) {
+      setValidMessage(false);
+    }
+    // userName.length >= 1 ? setValidMessage(true) : setValidMessage(false);
   };
-  //console.log(validMessage);
-  //console.log(userName.length);
+  console.log(validMessage);
+  console.log(userName.length);
 
   return (
     <S.AddWrapper>
@@ -95,19 +104,33 @@ const AddProfile = () => {
                   onProfileInput(event);
                   onValidMessage(event);
                 }}
-                //onFocus={onValidMessage}
+                onFocus={() => setValidMessage(false)}
+                onBlur={() => setValidMessage(true)}
               />
-              {validMessage === true ? (
+              {validMessage === true ? null : (
                 <S.Message>두 글자 이상 입력해주세요.</S.Message>
-              ) : null}
+              )}
             </S.InputContainer>
             <S.CheckContainer>
-              <S.KidsCheckbox type="checkbox" />
-              <S.CheckContent>어린이인가요?</S.CheckContent>
+              <S.CheckContent
+                onClick={() => {
+                  onCreate();
+                }}
+              >
+                중복확인
+              </S.CheckContent>
             </S.CheckContainer>
           </S.ProfileContainer>
+          <S.KidsContainer>
+            <S.KidsCheckbox type="checkbox" />
+            <S.KidsContent>어린이인가요?</S.KidsContent>
+          </S.KidsContainer>
           <S.ButtonContainer>
-            <S.Confirm type="button" onClick={() => onCreate()}>
+            <S.Confirm
+              type="button"
+              disabled={userName.length <= 1 ? true : false}
+              onClick={() => onCreate()}
+            >
               완료
             </S.Confirm>
             <Link to="/profile/user">

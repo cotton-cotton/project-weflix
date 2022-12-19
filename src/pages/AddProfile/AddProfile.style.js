@@ -56,7 +56,13 @@ export const InputContainer = styled.form`
   flex-direction: column;
   justify-content: space-between;
   height: 40%;
+  border: 1px solid teal;
 `;
+export const CheckContainer = styled.button`
+  display: flex;
+  align-items: center;
+`;
+export const CheckContent = styled.p``;
 export const Name = styled.input`
   width: 400px;
   height: 45px;
@@ -71,8 +77,13 @@ export const Name = styled.input`
     color: ${({ theme }) => theme.lightGray};
   }
 `;
-export const Message = styled.p``;
-export const CheckContainer = styled.div`
+export const Message = styled.p`
+  margin-top: 5px;
+  border: 1px solid white;
+  font-size: ${({ theme }) => theme.small};
+  color: ${({ theme }) => theme.lightGray};
+`;
+export const KidsContainer = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -83,7 +94,7 @@ export const KidsCheckbox = styled.input`
   border: none;
   accent-color: ${({ theme }) => theme.middleGray};
 `;
-export const CheckContent = styled.p`
+export const KidsContent = styled.p`
   color: ${({ theme }) => theme.lightGray};
 `;
 export const ButtonContainer = styled.section`

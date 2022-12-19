@@ -3,11 +3,6 @@ import styled from 'styled-components';
 import { TiDeleteOutline } from 'react-icons/ti';
 
 const ProfileBox = ({ key, id, userName, background, imo, onClick }) => {
-  // const onRemove = data => {
-  //   console.log(data);
-  //   arr.filter(el => el.userName !== data);
-  // };
-  // console.log(arr);
   return (
     <ProfileBoxWrapper key={key}>
       <ProfileImg key={key} id={id} background={background}>
@@ -40,6 +35,7 @@ const ProfileImg = styled.div`
   height: 150px;
   margin-bottom: 20px;
   background-color: ${({ background }) => background};
+  border-radius: 10px;
 `;
 const DeleteBtn = styled.button`
   position: absolute;
