@@ -1,3 +1,10 @@
+const device = {
+  small: 'screen and (max-width: 500px)',
+  medium: 'screen and (max-width: 768px)',
+  large: 'screen and (max-width: 1024px)',
+  xLarge: 'screen and (max-width: 1600px)',
+};
+
 const theme = {
   white: '#fff',
   black: '#222',
@@ -19,6 +26,9 @@ const theme = {
   bold: '700',
   normal: '500',
   light: '400',
+
+  device,
 };
 
-export default theme;
+export { theme };
+//export default theme;

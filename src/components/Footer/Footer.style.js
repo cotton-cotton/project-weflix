@@ -10,7 +10,10 @@ export const FooterWrapper = styled.footer`
   padding: 30px 0;
   color: ${({ theme }) => theme.middleGray};
   background-color: ${({ theme }) => theme.navBlack};
-  /* border-top: ${({ theme }) => theme.mainBottomLine}; */
+  @media ${({ theme }) => theme.device.small} {
+    height: 340px;
+    font-size: 13px;
+  }
 `;
 export const TopContainer = styled.section``;
 export const WeFlix = styled.p`
@@ -33,7 +36,13 @@ export const SecondRow = styled.p``;
 export const BottomContainer = styled.section``;
 export const Title = styled.p`
   margin-bottom: 20px;
+  @media ${({ theme }) => theme.device.small} {
+    font-size: 13px;
+  }
 `;
 export const Intro = styled.p`
   line-height: 30px;
+  @media ${({ theme }) => theme.device.small} {
+    line-height: 25px;
+  }
 `;
