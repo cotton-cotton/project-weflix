@@ -9,10 +9,6 @@ export const Wrapper = styled.nav`
   height: 100px;
   padding: 0 60px;
   background-color: ${({ theme }) => theme.navBlack};
-  /* @media ${({ theme }) => theme.device.small} {
-    flex-direction: column;
-    justify-content: center;
-  } */
 `;
 export const LogoContainer = styled.div``;
 export const Logo = styled.img`
