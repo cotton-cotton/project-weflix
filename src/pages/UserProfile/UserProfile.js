@@ -51,6 +51,7 @@ const UserProfile = () => {
                 background={list.background}
                 onClick={event => onRemove(list.userName)}
                 imo={list.imo}
+                del={list.del}
               />
             );
           })}
@@ -61,7 +62,7 @@ const UserProfile = () => {
             <S.Name>프로필 추가</S.Name>
           </S.ProfileAdd>
         </S.ImageContainer>
-        <Link to="/">
+        <Link to="/profile/select">
           <S.RegisterButton>완료</S.RegisterButton>
         </Link>
       </S.ProfileContainer>

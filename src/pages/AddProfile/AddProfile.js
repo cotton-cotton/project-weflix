@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { RiStarSmileLine } from 'react-icons/ri';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { BsPencilSquare } from 'react-icons/bs';
+import { TiDeleteOutline } from 'react-icons/ti';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { profileActions } from '../App/profileSlice';
@@ -43,6 +44,8 @@ const AddProfile = () => {
     });
   };
 
+  const isActiveButton = userName.length >= 2;
+
   const [users, setUsers] = useState(ProfileList);
 
   const onCreate = event => {
@@ -51,6 +54,7 @@ const AddProfile = () => {
       userName: userName,
       background: background,
       imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
+      del: <TiDeleteOutline size="20" />,
     };
 
     nextId.current += 1;
@@ -78,8 +82,6 @@ const AddProfile = () => {
     }
     // userName.length >= 1 ? setValidMessage(true) : setValidMessage(false);
   };
-  console.log(validMessage);
-  console.log(userName.length);
 
   return (
     <S.AddWrapper>
@@ -96,40 +98,41 @@ const AddProfile = () => {
               <RiStarSmileLine size="80" color="#fff" />
             </S.Image>
             <S.InputContainer>
-              <S.Name
-                types="text"
-                placeholder="이름"
-                name="userName"
-                onChange={event => {
-                  onProfileInput(event);
-                  onValidMessage(event);
-                }}
-                onFocus={() => setValidMessage(false)}
-                onBlur={() => setValidMessage(true)}
-              />
-              {validMessage === true ? null : (
-                <S.Message>두 글자 이상 입력해주세요.</S.Message>
-              )}
-            </S.InputContainer>
-            <S.CheckContainer>
-              <S.CheckContent
+              <S.InputBox>
+                <S.Name
+                  types="text"
+                  placeholder="이름"
+                  name="userName"
+                  onChange={event => {
+                    onProfileInput(event);
+                    onValidMessage(event);
+                  }}
+                  onFocus={() => setValidMessage(false)}
+                  onBlur={() => setValidMessage(true)}
+                />
+                {validMessage === true ? null : (
+                  <S.Message>두 글자 이상 입력해주세요.</S.Message>
+                )}
+              </S.InputBox>
+              <S.DualCheck
                 onClick={() => {
                   onCreate();
                 }}
               >
                 중복확인
-              </S.CheckContent>
-            </S.CheckContainer>
+              </S.DualCheck>
+            </S.InputContainer>
           </S.ProfileContainer>
-          <S.KidsContainer>
+          {/* <S.KidsContainer>
             <S.KidsCheckbox type="checkbox" />
             <S.KidsContent>어린이인가요?</S.KidsContent>
-          </S.KidsContainer>
+          </S.KidsContainer> */}
           <S.ButtonContainer>
             <S.Confirm
               type="button"
               disabled={userName.length <= 1 ? true : false}
               onClick={() => onCreate()}
+              isActiveButton={isActiveButton}
             >
               완료
             </S.Confirm>

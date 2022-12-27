@@ -3,9 +3,15 @@ import * as S from '../SelectProfile/SelectProfile.style';
 import { TbMoodKid } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 import { Navigate, useNavigate } from 'react-router-dom';
+import ProfileBox from '../../components/ProfileBox/ProfileBox';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { profileActions } from '../App/profileSlice';
 
 const SelectProfile = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const profileBox = useSelector(state => state.profile.profileList);
 
   const detail = () => {
     navigate('/content/list');
@@ -15,36 +21,24 @@ const SelectProfile = () => {
       <S.SelectContainer>
         <S.Title>WEFLIX를 시청할 프로필을 선택하세요.</S.Title>
         <S.ImageContainer>
-          <Link to="/content/list" style={{ textDecoration: 'none' }}>
-            <S.ProfileImg>
-              <S.Image src="/images/assets/나.JPG" alt="profile" />
-              <S.Name>나니부</S.Name>
-            </S.ProfileImg>
-          </Link>
-          <S.ProfileImg>
-            <S.Image src="/images/assets/목화.JPG" alt="profile" />
-            <S.Name>목화</S.Name>
-          </S.ProfileImg>
-          <S.ProfileImg>
-            <S.Image src="/images/assets/코코볼.JPG" alt="profile" />
-            <S.Name>김코코</S.Name>
-          </S.ProfileImg>
-          <S.ProfileImg>
-            <S.Image src="/images/assets/런던2.jpg" alt="profile" />
-            <S.Name>진캐슬</S.Name>
-          </S.ProfileImg>
-          <S.ProfileImg>
-            <S.Image src="/images/assets/진지.PNG" alt="profile" />
-            <S.Name>진지</S.Name>
-          </S.ProfileImg>
-          <S.ProfileImg>
-            <S.KidsImage>
-              <TbMoodKid size="100" color="#7f7b7b" />
-            </S.KidsImage>
-            <S.Name>키즈</S.Name>
-          </S.ProfileImg>
+          {profileBox.map((list, index) => {
+            return (
+              <ProfileBox
+                key={index}
+                id={list.id}
+                userName={list.userName}
+                background={list.background}
+                // onClick={event => onRemove(list.userName)}
+                imo={list.imo}
+                // del={list.del}
+              />
+            );
+          })}
         </S.ImageContainer>
-        <S.ModifyButton>프로필 관리</S.ModifyButton>
+
+        <Link to="/profile/user">
+          <S.ModifyButton>프로필 관리</S.ModifyButton>
+        </Link>
       </S.SelectContainer>
     </S.SelectWrapper>
   );

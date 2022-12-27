@@ -19,12 +19,20 @@ export const Title = styled.p`
   font-size: ${({ theme }) => theme.big};
   font-weight: ${({ theme }) => theme.light};
   letter-spacing: 2px;
+  @media ${({ theme }) => theme.device.large} {
+    font-size: ${({ theme }) => theme.large};
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    font-size: 20px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    font-size: ${({ theme }) => theme.medium};
+  }
 `;
 export const ImageContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  width: 55%;
-  height: 50%;
+  border: 1px solid red;
 `;
 export const ProfileImg = styled.div`
   display: flex;
@@ -73,4 +81,22 @@ export const ModifyButton = styled.button`
   border-radius: 3px;
   background: none;
   cursor: pointer;
+  @media ${({ theme }) => theme.device.large} {
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    width: 75px;
+    height: 30px;
+    font-size: 12px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    width: 65px;
+    height: 25px;
+    margin-top: 30px;
+    font-size: 10px;
+    -webkit-transform: scale(0.8);
+    display: inline-block;
+  }
 `;

@@ -2,13 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { TiDeleteOutline } from 'react-icons/ti';
 
-const ProfileBox = ({ key, id, userName, background, imo, onClick }) => {
+const ProfileBox = ({ key, id, userName, background, imo, del, onClick }) => {
   return (
     <ProfileBoxWrapper key={key}>
       <ProfileImg key={key} id={id} background={background}>
-        <DeleteBtn onClick={onClick}>
-          <TiDeleteOutline size="20" />
-        </DeleteBtn>
+        <DeleteBtn onClick={onClick}>{del}</DeleteBtn>
         <Imo>{imo}</Imo>
       </ProfileImg>
       <Name>{userName}</Name>
@@ -36,6 +34,18 @@ const ProfileImg = styled.div`
   margin-bottom: 20px;
   background-color: ${({ background }) => background};
   border-radius: 10px;
+  @media ${({ theme }) => theme.device.large} {
+    width: 120px;
+    height: 120px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    width: 100px;
+    height: 100px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    width: 80px;
+    height: 80px;
+  }
 `;
 const DeleteBtn = styled.button`
   position: absolute;
@@ -55,6 +65,15 @@ const Name = styled.p`
   font-weight: ${({ theme }) => theme.normal};
   letter-spacing: 2px;
   text-align: center;
+  @media ${({ theme }) => theme.device.large} {
+    font-size: 16px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    font-size: ${({ theme }) => theme.small};
+  }
+  @media ${({ theme }) => theme.device.small} {
+    font-size: 12px;
+  }
 `;
 
 export default ProfileBox;
