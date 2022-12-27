@@ -87,12 +87,21 @@ export const SignUp = styled.button`
 `;
 export const SignUpModal = styled.div`
   position: absolute;
-  top: 10%;
+  top: 12%;
   left: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 99;
+  @media ${({ theme }) => theme.device.large} {
+    left: 32%;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    left: 28%;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    left: 23%;
+  }
 `;
 export const SignInModal = styled.div`
   position: absolute;
@@ -102,4 +111,12 @@ export const SignInModal = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 99;
+  @media ${({ theme }) => theme.device.large} {
+    top: 12%;
+    left: 32%;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    top: 12%;
+    left: 28%;
+  }
 `;

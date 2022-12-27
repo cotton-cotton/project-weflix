@@ -145,7 +145,7 @@ const SignUp = () => {
           <S.Title>회원가입</S.Title>
           {SignUpData.map((list, index) => {
             return (
-              <S.testContainer key={index}>
+              <S.InputWrapper key={index}>
                 <InputContainer
                   key={index}
                   id={list.id}
@@ -165,7 +165,7 @@ const SignUp = () => {
                   passwordVal={passwordVal}
                   confirmVal={confirmVal}
                 />
-              </S.testContainer>
+              </S.InputWrapper>
             );
           })}
           <S.ButtonContainer>

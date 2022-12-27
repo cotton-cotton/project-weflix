@@ -21,8 +21,8 @@ const InputContainer = ({
   };
 
   return (
-    <S.InputContainer>
-      <S.Input
+    <S.InputWrapper>
+      <S.InputContainer
         id={id}
         name={name}
         type={type}
@@ -38,13 +38,17 @@ const InputContainer = ({
         }}
         focus={focus}
       />
-      {!nameVal && letterMessage ? <S.test>{message.name}</S.test> : null}
-      {!emailVal && letterMessage ? <S.test>{message.email}</S.test> : null}
+      {!nameVal && letterMessage ? (
+        <S.InputMsg>{message.name}</S.InputMsg>
+      ) : null}
+      {!emailVal && letterMessage ? (
+        <S.InputMsg>{message.email}</S.InputMsg>
+      ) : null}
       {!passwordVal && letterMessage ? (
-        <S.test>{message.password}</S.test>
+        <S.InputMsg>{message.password}</S.InputMsg>
       ) : null}
       {/* {!confirmVal && letterMessage ? <S.test>{message.confirm}</S.test> : null} */}
-    </S.InputContainer>
+    </S.InputWrapper>
   );
 };
 export default InputContainer;

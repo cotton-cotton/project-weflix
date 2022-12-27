@@ -14,6 +14,9 @@ const SignIn = () => {
     userPassword: '',
   });
 
+  const [emailVal, setEmailVal] = useState(false);
+  const [passwordVal, setPasswordVal] = useState(false);
+
   const { userEmail, userPassword } = inputValue;
 
   const handleInput = event => {
@@ -24,16 +27,34 @@ const SignIn = () => {
     });
   };
 
-  // const isValidLetter = userEmail.length >= 1 && userPassword.length >= 1;
+  const isValidLetter = userEmail.length >= 1 && userPassword.length >= 1;
 
-  // const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
-  // const passwordReg = new RegExp(
-  //   '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
-  // );
+  const emailReg = new RegExp('[a-zA-Z0-9.-]\\.[a-zA-Z]{2,6}$');
+  const passwordReg = new RegExp(
+    '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
+  );
+  // 특수문자, 숫자, 소문자, 대문자 포함 8자 이상
 
-  // const isActiveForm =
-  //   emailReg.test(userEmail) && passwordReg.test(userPassword) && isValidLetter;
+  const isActiveForm =
+    emailReg.test(userEmail) && passwordReg.test(userPassword) && isValidLetter;
 
+  const emailValidation = event => {
+    const inputVal = event.target.value;
+    if (emailReg.test(inputVal)) {
+      setEmailVal(true);
+    } else if (!emailReg.test(inputVal)) {
+      setEmailVal(false);
+    }
+  };
+
+  const passwordValidation = event => {
+    const inputVal = event.target.value;
+    if (passwordReg.test(inputVal)) {
+      setPasswordVal(true);
+    } else if (!passwordReg.test(inputVal)) {
+      setPasswordVal(false);
+    }
+  };
   const handleData = () => {
     axios
       .post(API.SIGN_IN, {
@@ -63,7 +84,14 @@ const SignIn = () => {
                 placeholder={list.placeholder}
                 text={list.text}
                 type={list.type}
-                onChange={handleInput}
+                message={list.message}
+                onChange={event => {
+                  handleInput(event);
+                  emailValidation(event);
+                  passwordValidation(event);
+                }}
+                emailVal={emailVal}
+                passwordVal={passwordVal}
               />
             );
           })}
@@ -71,17 +99,17 @@ const SignIn = () => {
             <S.SignInButton
               type="button"
               onClick={handleData}
-              // disabled={isActiveForm ? true : false}
-              // isActiveForm={isActiveForm}
+              disabled={isActiveForm ? true : false}
+              isActiveForm={isActiveForm}
             >
               로그인
             </S.SignInButton>
           </S.ButtonContainer>
         </S.EntryContainer>
-        <S.CheckboxContainer>
+        {/* <S.CheckboxContainer>
           <S.SaveInfo type="checkbox" />
           <S.CheckboxContent>로그인 정보 저장</S.CheckboxContent>
-        </S.CheckboxContainer>
+        </S.CheckboxContainer> */}
       </S.SignInContainer>
     </S.SignInWrapper>
   );
