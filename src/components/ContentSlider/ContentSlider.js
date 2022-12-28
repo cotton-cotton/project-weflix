@@ -46,10 +46,15 @@ const SliderImg = styled.img`
   width: 400px;
   height: 250px;
   padding-right: 12px;
-  /* &:hover {
-    width: 500px;
-    height: 350px;
-    margin: 0 20px;
-  } */
+  @media ${({ theme }) => theme.device.large} {
+    width: 320px;
+    height: 170px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    height: 100px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    height: 70px;
+  }
 `;
 export default ContentSlider;

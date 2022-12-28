@@ -32,7 +32,6 @@ export const Title = styled.p`
 export const ImageContainer = styled.section`
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;
 `;
 export const ProfileImg = styled.div`
   display: flex;
