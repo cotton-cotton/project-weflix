@@ -18,6 +18,7 @@ const backgroundList = ['#80b6f7', '#f7d0b7', '#c3a2f2', '#80f7d9', '#f7b7f6'];
 const AddProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const profileBox = useSelector(state => state.profile.profileList);
 
   const [profileName, setProfileName] = useState({
@@ -31,6 +32,7 @@ const AddProfile = () => {
 
   const [addProfile, setAddProfile] = useState([]);
   const [validMessage, setValidMessage] = useState(true);
+  const [validButton, setValidButton] = useState(false);
 
   const { userName } = profileName;
   const { background } = backgroundColor;
@@ -44,35 +46,49 @@ const AddProfile = () => {
     });
   };
 
-  const isActiveButton = userName.length >= 2;
+  // const isActiveButton = userName.length >= 2 && ;
 
   const [users, setUsers] = useState(ProfileList);
 
-  const onCreate = event => {
-    const user = {
-      id: nextId.current,
-      userName: userName,
-      background: background,
-      imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
-      del: <TiDeleteOutline size="20" />,
-    };
-
-    nextId.current += 1;
-
-    // //setUsers([...users, user]);
-    // setUsers(user);
-
-    setProfileName({
-      userName: '',
-    });
-    setBackgroundColor({
-      background: '',
-    });
-
-    setAddProfile([...addProfile, user]);
-    dispatch(profileActions.addProfile({ data: user }));
-    navigate('/profile/user');
+  const handleSubmit = event => {
+    event.preventDefault();
   };
+
+  const onCreate = () => {
+    const userNameList = profileBox.map(el => el.userName);
+    if (userNameList.includes(userName)) {
+      alert('이미 존재하는 닉네임입니다.');
+      setValidButton(false);
+    } else {
+      const user = {
+        id: nextId.current,
+        userName: userName,
+        background: background,
+        imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
+        del: <TiDeleteOutline size="20" />,
+      };
+
+      nextId.current += 1;
+
+      // //setUsers([...users, user]);
+      // setUsers(user);
+
+      setProfileName({
+        userName: '',
+      });
+      setBackgroundColor({
+        background: '',
+      });
+
+      setAddProfile([...addProfile, user]);
+      dispatch(profileActions.addProfile({ data: user }));
+      alert('사용 가능한 닉네임입니다.');
+      setValidButton(true);
+    }
+    console.log(profileBox);
+  };
+  //console.log(userName);
+  //console.log(profileBox);
   const onValidMessage = event => {
     const nickName = event.target.value;
     if (nickName.length >= 2) {
@@ -80,7 +96,6 @@ const AddProfile = () => {
     } else if (nickName.length <= 1) {
       setValidMessage(false);
     }
-    // userName.length >= 1 ? setValidMessage(true) : setValidMessage(false);
   };
 
   return (
@@ -97,7 +112,7 @@ const AddProfile = () => {
             <S.Image>
               <RiStarSmileLine size="80" color="#fff" />
             </S.Image>
-            <S.InputContainer>
+            <S.InputContainer onSubmit={handleSubmit}>
               <S.InputBox>
                 <S.Name
                   types="text"
@@ -109,6 +124,7 @@ const AddProfile = () => {
                   }}
                   onFocus={() => setValidMessage(false)}
                   onBlur={() => setValidMessage(true)}
+                  // value={userName}
                 />
                 {validMessage === true ? null : (
                   <S.Message>두 글자 이상 입력해주세요.</S.Message>
@@ -128,16 +144,18 @@ const AddProfile = () => {
             <S.KidsContent>어린이인가요?</S.KidsContent>
           </S.KidsContainer> */}
           <S.ButtonContainer>
-            <S.Confirm
-              type="button"
-              disabled={userName.length <= 1 ? true : false}
-              onClick={() => onCreate()}
-              isActiveButton={isActiveButton}
-            >
-              완료
-            </S.Confirm>
             <Link to="/profile/user">
-              <S.Cancel type="button">취소</S.Cancel>
+              <S.Confirm
+                type="button"
+                disabled={validButton ? false : true}
+                // onClick={() => onCreate()}
+                validButton={validButton}
+              >
+                완료
+              </S.Confirm>
+            </Link>
+            <Link to="/profile/user">
+              <S.Cancel type="submit">취소</S.Cancel>
             </Link>
           </S.ButtonContainer>
         </S.AddBox>

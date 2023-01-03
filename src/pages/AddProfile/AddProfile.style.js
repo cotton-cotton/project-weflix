@@ -243,10 +243,10 @@ export const Confirm = styled.button`
   outline: none;
   text-align: center;
   border-radius: 3px;
-  background-color: ${({ isActiveButton }) =>
-    isActiveButton ? '#4E68B5' : '#7f7b7b'};
-  color: ${({ isActiveButton }) => (isActiveButton ? '#fff' : '#222')};
-  cursor: ${({ isActiveButton }) => (isActiveButton ? 'pointer' : null)};
+  background-color: ${({ validButton }) =>
+    validButton ? '#4E68B5' : '#7f7b7b'};
+  color: ${({ validButton }) => (validButton ? '#fff' : '#222')};
+  cursor: ${({ validButton }) => (validButton ? 'pointer' : null)};
   @media ${({ theme }) => theme.device.large} {
     width: 63px;
     height: 30px;

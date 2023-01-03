@@ -21,7 +21,7 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const profileBox = useSelector(state => state.profile.profileList);
-
+  console.log(profileBox);
   const preventProfile = event => {
     if (profileBox.length < 3) {
       navigate('/profile/add');

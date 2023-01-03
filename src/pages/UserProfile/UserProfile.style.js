@@ -5,7 +5,6 @@ export const SelectWrapper = styled.main`
   flex-direction: column;
   height: 100vh;
   padding-top: 100px;
-  border: 1px solid red;
   background-color: ${({ theme }) => theme.black};
 `;
 export const ProfileContainer = styled.section`
@@ -14,7 +13,6 @@ export const ProfileContainer = styled.section`
   justify-content: space-between;
   align-items: center;
   height: 60%;
-  border: 1px solid peru;
   @media ${({ theme }) => theme.device.large} {
     height: 50%;
   }
@@ -44,7 +42,6 @@ export const ImageContainer = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid white;
 `;
 export const OriginProfileBox = styled.div`
   width: 150px;
@@ -55,7 +52,6 @@ export const ProfileAdd = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid teal;
 `;
 export const Image = styled.div`
   display: flex;
@@ -99,7 +95,6 @@ export const Add = styled.button`
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  border: 1px solid red;
   &:hover {
     box-shadow: 5px 5px 5px 10px black;
   }

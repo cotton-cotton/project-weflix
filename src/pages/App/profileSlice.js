@@ -11,11 +11,11 @@ const profileSlice = createSlice({
   reducers: {
     addProfile(state, action) {
       state.profileList.push(action.payload.data);
-      //state.profileList = action.payload.data;
+      // state.profileList = action.payload.data;
     },
-    makingProfile(state, action) {
-      state.makingList.push(action.payload.data);
-    },
+    // makingProfile(state, action) {
+    //   state.makingList.push(action.payload.data);
+    // },
     deleteProfile(state, action) {
       state.profileList = action.payload.data;
     },
