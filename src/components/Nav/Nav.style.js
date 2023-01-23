@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import breakPoints from '../../styles/media';
 
 export const Wrapper = styled.nav`
   display: flex;
@@ -94,13 +93,13 @@ export const SignUpModal = styled.div`
   align-items: center;
   z-index: 99;
   @media ${({ theme }) => theme.device.large} {
-    left: 32%;
+    left: 32%;/
   }
   @media ${({ theme }) => theme.device.medium} {
-    left: 28%;
+    left: 28%;/
   }
   @media ${({ theme }) => theme.device.small} {
-    left: 23%;
+    left: 23%;/
   }
 `;
 export const SignInModal = styled.div`

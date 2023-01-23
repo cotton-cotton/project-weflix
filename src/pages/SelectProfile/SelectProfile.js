@@ -1,21 +1,16 @@
 import React from 'react';
 import * as S from '../SelectProfile/SelectProfile.style';
-import { TbMoodKid } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ProfileBox from '../../components/ProfileBox/ProfileBox';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { profileActions } from '../App/profileSlice';
 
 const SelectProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const profileBox = useSelector(state => state.profile.profileList);
 
-  const detail = () => {
-    navigate('/content/list');
-  };
   return (
     <S.SelectWrapper>
       <S.SelectContainer>
@@ -28,9 +23,7 @@ const SelectProfile = () => {
                 id={list.id}
                 userName={list.userName}
                 background={list.background}
-                // onClick={event => onRemove(list.userName)}
                 imo={list.imo}
-                // del={list.del}
               />
             );
           })}

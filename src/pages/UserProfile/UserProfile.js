@@ -1,31 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import * as S from './UserProfile.style';
 import { Link } from 'react-router-dom';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ProfileBox from '../../components/ProfileBox/ProfileBox';
-import { IoMdAddCircle } from 'react-icons/io';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { profileActions } from '../App/profileSlice';
 
-// let ProfileListData = [
-//   {
-//     id: 1,
-//     userName: '나니부',
-//     background: '#80b6f7',
-//     //imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
-//   },
-// ];
+import { IoMdAddCircle } from 'react-icons/io';
 
 const UserProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const profileBox = useSelector(state => state.profile.profileList);
-  console.log(profileBox);
+  const profileList = useSelector(state => state.profile.profileList);
+
   const preventProfile = event => {
-    if (profileBox.length < 3) {
+    if (profileList.length < 3) {
       navigate('/profile/add');
-    } else if (profileBox.length >= 3) {
+    } else if (profileList.length >= 3) {
       alert('프로필은 최대 3개까지 생성 가능합니다.');
       event.preventDefault();
     }
@@ -33,7 +24,7 @@ const UserProfile = () => {
 
   const onRemove = userName => {
     alert('삭제하시겠습니까?');
-    const removedList = profileBox.filter(list => list.userName !== userName);
+    const removedList = profileList.filter(list => list.userName !== userName);
     dispatch(profileActions.deleteProfile({ data: removedList }));
   };
 
@@ -42,7 +33,7 @@ const UserProfile = () => {
       <S.ProfileContainer>
         <S.Title>프로필 관리</S.Title>
         <S.ImageContainer>
-          {profileBox.map((list, index) => {
+          {profileList.map((list, index) => {
             return (
               <ProfileBox
                 key={index}

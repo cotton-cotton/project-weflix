@@ -1,61 +1,66 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import * as S from '../AddProfile/AddProfile.style';
-import ProfileData from '../../components/ProfileData/ProfileData';
-import OriginProfile from '../../components/OriginProfile/OriginProfile';
 import { Link } from 'react-router-dom';
-import { RiStarSmileLine } from 'react-icons/ri';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { BsPencilSquare } from 'react-icons/bs';
-import { TiDeleteOutline } from 'react-icons/ti';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { profileActions } from '../App/profileSlice';
 
-const ProfileList = [];
+import { RiStarSmileLine } from 'react-icons/ri';
+import { BsPencilSquare } from 'react-icons/bs';
+import { TiDeleteOutline } from 'react-icons/ti';
 
 const backgroundList = ['#80b6f7', '#f7d0b7', '#c3a2f2', '#80f7d9', '#f7b7f6'];
 
 const AddProfile = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const profileBox = useSelector(state => state.profile.profileList);
+  // reduxToolkit 데이터 담은 변수
+  const profileList = useSelector(state => state.profile.profileList);
 
   const [profileName, setProfileName] = useState({
     userName: '',
   });
-
+  // 배경색 랜덤으로 뽑기
   const [backgroundColor, setBackgroundColor] = useState({
     background:
       backgroundList[Math.floor(Math.random() * backgroundList.length)],
   });
 
-  const [addProfile, setAddProfile] = useState([]);
+  //const [addProfile, setAddProfile] = useState([]);
   const [validMessage, setValidMessage] = useState(true);
   const [validButton, setValidButton] = useState(false);
-
-  const { userName } = profileName;
+  // 구조분해할당
+  const { userName } = profileName; // 객체 키값과 이름이 같아야 하는지?
   const { background } = backgroundColor;
-  const nextId = useRef(1);
 
   const onProfileInput = event => {
     const { name, value } = event.target;
+    //console.log(event.target.value);
     setProfileName({
-      ...profileName,
-      [name]: value,
+      ...profileName, // 어떤 역할?
+      [name]: value, // 왜 대괄호로 감싸는 걸까?
     });
+    // console.log(name); //userName
+    // console.log(value); //입력값
   };
-
-  // const isActiveButton = userName.length >= 2 && ;
-
-  const [users, setUsers] = useState(ProfileList);
-
+  // 중복확인 버튼 클릭시 새로고침 막기
   const handleSubmit = event => {
     event.preventDefault();
   };
+  // 이름글자 제한
+  const onValidMessage = event => {
+    const nickName = event.target.value;
+    if (nickName.length >= 2) {
+      setValidMessage(true);
+    } else if (nickName.length <= 1) {
+      setValidMessage(false);
+    }
+  };
+
+  const nextId = useRef(1);
 
   const onCreate = () => {
-    const userNameList = profileBox.map(el => el.userName);
+    // 이름만 추출하기 중복확인때 사용
+    const userNameList = profileList.map(el => el.userName);
+
     if (userNameList.includes(userName)) {
       alert('이미 존재하는 닉네임입니다.');
       setValidButton(false);
@@ -67,11 +72,8 @@ const AddProfile = () => {
         imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
         del: <TiDeleteOutline size="20" />,
       };
-
+      // 아이디 값이 안먹힘 ㅜ ㅜ
       nextId.current += 1;
-
-      // //setUsers([...users, user]);
-      // setUsers(user);
 
       setProfileName({
         userName: '',
@@ -80,21 +82,11 @@ const AddProfile = () => {
         background: '',
       });
 
-      setAddProfile([...addProfile, user]);
+      //setAddProfile([...addProfile, user]);
+      //dispatch(profileActions.addProfile({ data: [...addProfile, user] }));
       dispatch(profileActions.addProfile({ data: user }));
       alert('사용 가능한 닉네임입니다.');
       setValidButton(true);
-    }
-    console.log(profileBox);
-  };
-  //console.log(userName);
-  //console.log(profileBox);
-  const onValidMessage = event => {
-    const nickName = event.target.value;
-    if (nickName.length >= 2) {
-      setValidMessage(true);
-    } else if (nickName.length <= 1) {
-      setValidMessage(false);
     }
   };
 
@@ -124,7 +116,6 @@ const AddProfile = () => {
                   }}
                   onFocus={() => setValidMessage(false)}
                   onBlur={() => setValidMessage(true)}
-                  // value={userName}
                 />
                 {validMessage === true ? null : (
                   <S.Message>두 글자 이상 입력해주세요.</S.Message>
@@ -139,16 +130,11 @@ const AddProfile = () => {
               </S.DualCheck>
             </S.InputContainer>
           </S.ProfileContainer>
-          {/* <S.KidsContainer>
-            <S.KidsCheckbox type="checkbox" />
-            <S.KidsContent>어린이인가요?</S.KidsContent>
-          </S.KidsContainer> */}
           <S.ButtonContainer>
             <Link to="/profile/user">
               <S.Confirm
                 type="button"
                 disabled={validButton ? false : true}
-                // onClick={() => onCreate()}
                 validButton={validButton}
               >
                 완료

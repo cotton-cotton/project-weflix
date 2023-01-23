@@ -206,20 +206,6 @@ export const DualCheck = styled.button`
     display: inline-block;
   }
 `;
-// export const KidsContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-// `;
-// export const KidsCheckbox = styled.input`
-//   width: 30px;
-//   height: 30px;
-//   margin-right: 10px;
-//   border: none;
-//   accent-color: ${({ theme }) => theme.middleGray};
-// `;
-// export const KidsContent = styled.p`
-//   color: ${({ theme }) => theme.lightGray};
-// `;
 export const ButtonContainer = styled.section`
   display: flex;
   justify-content: space-between;
