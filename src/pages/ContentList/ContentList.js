@@ -1,10 +1,10 @@
 import React from 'react';
-import * as S from '../ContentList/ContentList.style';
+import * as S from './ContentList.style';
 import { Link } from 'react-router-dom';
-import ContentSlider from '../../components/ContentSlider/ContentSlider';
-import NewSlider from '../../components/NewSlider/NewSlider';
-import RecoSlider from '../../components/RecoSlider/RecoSlider';
-import TopSlider from '../../components/TopSlider/TopSlider';
+import ContentSlider from '../../components/Slider/ContentSlider/ContentSlider';
+import NewSlider from '../../components/Slider/NewSlider/NewSlider';
+import RecoSlider from '../../components/Slider/RecoSlider/RecoSlider';
+import TopSlider from '../../components/Slider/TopSlider/TopSlider';
 
 const ContentList = () => {
   return (

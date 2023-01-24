@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as S from '../AddProfile/AddProfile.style';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,18 +19,26 @@ const AddProfile = () => {
     userName: '',
   });
   // 배경색 랜덤으로 뽑기
-  const [backgroundColor, setBackgroundColor] = useState({
-    background:
-      backgroundList[Math.floor(Math.random() * backgroundList.length)],
-  });
+
+  //const [backgroundColor, setBackgroundColor] = useState('');
 
   //const [addProfile, setAddProfile] = useState([]);
   const [validMessage, setValidMessage] = useState(true);
   const [validButton, setValidButton] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+
+  // const onCheckedKids = event => {
+  //   if (event) {
+  //     setIsChecked(true);
+  //     setBackgroundColor('#fff');
+  //   } else {
+  //     setIsChecked(false);
+  //     setBackgroundColor('#f7df80');
+  //   }
+  // };
   // 구조분해할당
   const { userName } = profileName; // 객체 키값과 이름이 같아야 하는지?
-  const { background } = backgroundColor;
-
+  // const { background } = backgroundColor;
   const onProfileInput = event => {
     const { name, value } = event.target;
     //console.log(event.target.value);
@@ -57,39 +65,58 @@ const AddProfile = () => {
 
   const nextId = useRef(1);
 
-  const onCreate = () => {
+  const [backgroundColor, setBackgroundColor] = useState('');
+
+  useEffect(() => {
+    setBackgroundColor(
+      isChecked
+        ? '#f7df80'
+        : backgroundList[Math.floor(Math.random() * backgroundList.length)]
+    );
+  }, [isChecked]);
+
+  const user = {
+    id: nextId.current,
+    userName: userName,
+    kids: isChecked,
+    background: backgroundColor,
+    imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
+    del: <TiDeleteOutline size="20" />,
+  };
+
+  const onDualChecking = () => {
     // 이름만 추출하기 중복확인때 사용
     const userNameList = profileList.map(el => el.userName);
-
     if (userNameList.includes(userName)) {
       alert('이미 존재하는 닉네임입니다.');
       setValidButton(false);
     } else {
-      const user = {
-        id: nextId.current,
-        userName: userName,
-        background: background,
-        imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
-        del: <TiDeleteOutline size="20" />,
-      };
       // 아이디 값이 안먹힘 ㅜ ㅜ
-      nextId.current += 1;
-
-      setProfileName({
-        userName: '',
-      });
-      setBackgroundColor({
-        background: '',
-      });
+      // console.log(user);
+      // nextId.current += 1;
+      // setBackgroundColor({
+      //   background: '',
+      // });
 
       //setAddProfile([...addProfile, user]);
       //dispatch(profileActions.addProfile({ data: [...addProfile, user] }));
-      dispatch(profileActions.addProfile({ data: user }));
+      // dispatch(profileActions.addProfile({ data: user }));
       alert('사용 가능한 닉네임입니다.');
       setValidButton(true);
+      // setProfileName({
+      //   userName: '',
+      // });
     }
   };
-
+  const onCreate = () => {
+    if (validButton) {
+      console.log(user);
+      dispatch(profileActions.addProfile({ data: user }));
+      nextId.current += 1;
+    } else {
+      alert('닉네임 중복 확인을 해주세요!');
+    }
+  };
   return (
     <S.AddWrapper>
       <S.AddContainer>
@@ -100,14 +127,16 @@ const AddProfile = () => {
               WEFLIX를 시청할 다른 사용자를 등록하시려면 프로필을 추가하세요.
             </S.SubTitle>
           </S.TitleContainer>
+
           <S.ProfileContainer>
-            <S.Image>
-              <RiStarSmileLine size="80" color="#fff" />
-            </S.Image>
             <S.InputContainer onSubmit={handleSubmit}>
+              <S.Image>
+                <RiStarSmileLine size="80" color="#fff" />
+              </S.Image>
+              {/* <S.NamingBox> */}
               <S.InputBox>
                 <S.Name
-                  types="text"
+                  type="text"
                   placeholder="이름"
                   name="userName"
                   onChange={event => {
@@ -123,19 +152,39 @@ const AddProfile = () => {
               </S.InputBox>
               <S.DualCheck
                 onClick={() => {
-                  onCreate();
+                  onDualChecking();
                 }}
+                validMessage={validMessage}
               >
                 중복확인
               </S.DualCheck>
+              {/* </S.NamingBox> */}
             </S.InputContainer>
+            <S.KidsContainer>
+              <S.KidsBox
+                type="checkbox"
+                // onChange={event => {
+                //   onCheckedKids(event.target.checked);
+                // }}
+                onChange={event =>
+                  event.target.checked
+                    ? setIsChecked(true)
+                    : setIsChecked(false)
+                }
+              />
+              <S.KidsTitle>어린이인가요?</S.KidsTitle>
+            </S.KidsContainer>
           </S.ProfileContainer>
+
           <S.ButtonContainer>
             <Link to="/profile/user">
               <S.Confirm
                 type="button"
                 disabled={validButton ? false : true}
                 validButton={validButton}
+                onClick={() => {
+                  onCreate();
+                }}
               >
                 완료
               </S.Confirm>

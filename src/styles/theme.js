@@ -22,6 +22,7 @@ const theme = {
   large: '30px',
   medium: '18px',
   small: '14px',
+  xSmall: '10px',
 
   bold: '700',
   normal: '500',

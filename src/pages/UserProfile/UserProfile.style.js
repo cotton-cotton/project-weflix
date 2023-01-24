@@ -3,9 +3,19 @@ import styled from 'styled-components';
 export const SelectWrapper = styled.main`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 800px;
   padding-top: 100px;
   background-color: ${({ theme }) => theme.black};
+  border: 1px solid white;
+  @media ${({ theme }) => theme.device.large} {
+    height: 700px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    height: 600px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    height: 500px;
+  }
 `;
 export const ProfileContainer = styled.section`
   display: flex;
@@ -13,14 +23,9 @@ export const ProfileContainer = styled.section`
   justify-content: space-between;
   align-items: center;
   height: 60%;
-  @media ${({ theme }) => theme.device.large} {
-    height: 50%;
-  }
-  @media ${({ theme }) => theme.device.medium} {
-    height: 40%;
-  }
+  border: 1px solid red;
   @media ${({ theme }) => theme.device.small} {
-    height: 30%;
+    height: 50%;
   }
 `;
 export const Title = styled.p`
@@ -130,8 +135,8 @@ export const RegisterButton = styled.button`
     font-size: 14px;
   }
   @media ${({ theme }) => theme.device.small} {
-    width: 40px;
-    height: 16px;
+    width: 45px;
+    height: 20px;
     font-size: 12px;
   }
 `;

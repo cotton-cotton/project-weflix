@@ -27,7 +27,7 @@ const UserProfile = () => {
     const removedList = profileList.filter(list => list.userName !== userName);
     dispatch(profileActions.deleteProfile({ data: removedList }));
   };
-
+  console.log(profileList);
   return (
     <S.SelectWrapper>
       <S.ProfileContainer>

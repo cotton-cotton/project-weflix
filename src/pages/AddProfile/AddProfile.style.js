@@ -3,9 +3,18 @@ import styled from 'styled-components';
 export const AddWrapper = styled.main`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 800px;
   padding-top: 100px;
   background-color: ${({ theme }) => theme.black};
+  @media ${({ theme }) => theme.device.large} {
+    height: 700px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    height: 600px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    height: 500px;
+  }
 `;
 export const AddContainer = styled.section`
   display: flex;
@@ -17,14 +26,7 @@ export const AddContainer = styled.section`
 export const AddBox = styled.section`
   display: flex;
   flex-direction: column;
-  width: 40%;
   height: 100%;
-  @media ${({ theme }) => theme.device.large} {
-    width: 48%;
-  }
-  @media ${({ theme }) => theme.device.medium} {
-    width: 40%;
-  }
 `;
 export const TitleContainer = styled.section`
   width: 100%;
@@ -33,7 +35,7 @@ export const TitleContainer = styled.section`
     height: 18%;
   }
   @media ${({ theme }) => theme.device.medium} {
-    height: 16%;
+    height: 70px;
   }
 `;
 export const Title = styled.p`
@@ -70,16 +72,40 @@ export const SubTitle = styled.p`
 `;
 export const ProfileContainer = styled.section`
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 550px;
+  height: 200px;
+  padding: 15px 0;
+  border-top: 1px solid #494949;
+  border-bottom: 1px solid #494949;
+  @media ${({ theme }) => theme.device.large} {
+    width: 430px;
+    height: 180px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    width: 400px;
+    height: 150px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    width: 300px;
+    height: 130px;
+    padding-top: 20px;
+  }
+`;
+export const InputContainer = styled.form`
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 40%;
-  border-top: 1px solid #494949;
-  border-bottom: 1px solid #494949;
+  /* height: 40%; */
+  /* border: 1px solid teal; */
   @media ${({ theme }) => theme.device.small} {
-    flex-direction: column;
-    height: 35%;
-    padding-top: 20px;
+    /* flex-direction: column; */
+    height: 170px;
+    margin-bottom: 20px;
+    /* justify-content: space-between;
+    align-items: flex-start; */
   }
 `;
 export const Image = styled.div`
@@ -88,53 +114,45 @@ export const Image = styled.div`
   justify-content: center;
   width: 130px;
   height: 130px;
-  margin-right: 20px;
   background-color: ${({ theme }) => theme.mainBlue};
   border-radius: 3px;
   @media ${({ theme }) => theme.device.large} {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
   }
   @media ${({ theme }) => theme.device.small} {
     width: 60px;
     height: 60px;
-    margin: 0 auto;
   }
 `;
-export const InputContainer = styled.form`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 75%;
-  height: 40%;
-  @media ${({ theme }) => theme.device.small} {
-    flex-direction: column;
-    height: 32%;
-    margin-bottom: 20px;
-  }
-`;
+// export const NamingBox = styled.div`
+//   display: flex;
+// `;
 export const InputBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 78%;
+  width: 320px;
+  /* width: 78%; */
+  /* height: 70px; */
+  @media ${({ theme }) => theme.device.xLarge} {
+    width: 300px;
+  }
   @media ${({ theme }) => theme.device.large} {
-    width: 75%;
+    width: 250px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 70%;
+    width: 230px;
   }
   @media ${({ theme }) => theme.device.small} {
-    width: 90%;
+    width: 160px;
   }
 `;
 export const Name = styled.input`
-  width: 100%;
   height: 45px;
-  margin-right: 10px;
   padding: 0 10px;
   background-color: ${({ theme }) => theme.middleGray};
   border: none;
@@ -171,10 +189,10 @@ export const Message = styled.p`
     font-size: 12px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
     -webkit-transform: scale(0.7);
     display: inline-block;
   }
@@ -190,20 +208,48 @@ export const DualCheck = styled.button`
   background-color: ${({ theme }) => theme.lightGray};
   border: none;
   outline: none;
+  margin-bottom: ${({ validMessage, theme }) => (validMessage ? 0 : '10px')};
   @media ${({ theme }) => theme.device.large} {
-    width: 65px;
-    height: 25px;
-    font-size: 13px;
+    width: 55px;
+    height: 30px;
+    font-size: 12px;
   }
   @media ${({ theme }) => theme.device.medium} {
     width: 50px;
-    height: 20px;
-    font-size: 10px;
+    height: 25px;
+    font-size: ${({ theme }) => theme.xSmall};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
     -webkit-transform: scale(0.7);
     display: inline-block;
+  }
+`;
+export const KidsContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+export const KidsBox = styled.input`
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  @media ${({ theme }) => theme.device.medium} {
+    width: 15px;
+    height: 15px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    width: 15px;
+    height: 15px;
+  }
+`;
+export const KidsTitle = styled.p`
+  font-size: ${({ theme }) => theme.small};
+  color: ${({ theme }) => theme.lightGray};
+  @media ${({ theme }) => theme.device.medium} {
+    font-size: ${({ theme }) => theme.small};
+  }
+  @media ${({ theme }) => theme.device.small} {
+    font-size: 11px;
   }
 `;
 export const ButtonContainer = styled.section`
@@ -236,7 +282,7 @@ export const Confirm = styled.button`
   @media ${({ theme }) => theme.device.large} {
     width: 63px;
     height: 30px;
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.small};
   }
   @media ${({ theme }) => theme.device.medium} {
     width: 60px;
@@ -246,7 +292,7 @@ export const Confirm = styled.button`
   @media ${({ theme }) => theme.device.small} {
     width: 40px;
     height: 18px;
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
   }
 `;
 export const Cancel = styled.button`
@@ -262,7 +308,7 @@ export const Cancel = styled.button`
   @media ${({ theme }) => theme.device.large} {
     width: 63px;
     height: 30px;
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.small};
   }
   @media ${({ theme }) => theme.device.medium} {
     width: 60px;
@@ -272,6 +318,6 @@ export const Cancel = styled.button`
   @media ${({ theme }) => theme.device.small} {
     width: 40px;
     height: 18px;
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
   }
 `;
