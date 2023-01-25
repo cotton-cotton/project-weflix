@@ -23,11 +23,11 @@ const UserProfile = () => {
   };
 
   const onRemove = userName => {
-    alert('삭제하시겠습니까?');
+    alert('삭제되었습니다.');
     const removedList = profileList.filter(list => list.userName !== userName);
     dispatch(profileActions.deleteProfile({ data: removedList }));
   };
-  console.log(profileList);
+  //console.log(profileList);
   return (
     <S.SelectWrapper>
       <S.ProfileContainer>

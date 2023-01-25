@@ -4,27 +4,33 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import ProfileBox from '../../components/ProfileBox/ProfileBox';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const SelectProfile = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const profileBox = useSelector(state => state.profile.profileList);
+  const profileList = useSelector(state => state.profile.profileList);
 
+  const isCheckedKids = kids => {
+    kids ? navigate('/content/list/kids') : navigate('/content/list');
+  };
   return (
     <S.SelectWrapper>
       <S.SelectContainer>
         <S.Title>WEFLIX를 시청할 프로필을 선택하세요.</S.Title>
         <S.ImageContainer>
-          {profileBox.map((list, index) => {
+          {profileList.map((list, index) => {
             return (
-              <ProfileBox
+              <S.ProfileContainer
                 key={index}
-                id={list.id}
-                userName={list.userName}
-                background={list.background}
-                imo={list.imo}
-              />
+                onClick={() => isCheckedKids(list.kids)}
+              >
+                <ProfileBox
+                  id={list.id}
+                  userName={list.userName}
+                  background={list.background}
+                  imo={list.imo}
+                />
+              </S.ProfileContainer>
             );
           })}
         </S.ImageContainer>

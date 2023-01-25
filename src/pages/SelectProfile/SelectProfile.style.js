@@ -33,6 +33,7 @@ export const ImageContainer = styled.section`
   display: flex;
   justify-content: space-between;
 `;
+export const ProfileContainer = styled.div``;
 export const ProfileImg = styled.div`
   display: flex;
   flex-direction: column;
