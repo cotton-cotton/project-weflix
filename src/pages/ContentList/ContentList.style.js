@@ -58,7 +58,6 @@ export const Category = styled.p`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  padding-left: 10px;
   color: ${({ theme }) => theme.mainBlue};
   font-size: ${({ theme }) => theme.large};
   font-weight: ${({ theme }) => theme.bold};

@@ -17,23 +17,21 @@ const ContentList = () => {
       </S.SliderContent>
 
       <S.ListContainer>
-        <Link to="/content/all" style={{ textDecoration: 'none' }}>
-          <S.Category>지금 뜨는 컨텐츠 &nbsp;</S.Category>
-        </Link>
+        <S.Category>지금 뜨는 컨텐츠 </S.Category>
         <S.ContentContainer>
           <NewSlider />
         </S.ContentContainer>
       </S.ListContainer>
 
       <S.ListContainer>
-        <S.Category>니부님을 위한 맞춤 컨텐츠&nbsp;</S.Category>
+        <S.Category>니부님을 위한 맞춤 컨텐츠</S.Category>
         <S.ContentContainer>
           <RecoSlider />
         </S.ContentContainer>
       </S.ListContainer>
 
       <S.ListContainer>
-        <S.Category>TOP 100&nbsp;</S.Category>
+        <S.Category>TOP 100</S.Category>
         <S.ContentContainer>
           <TopSlider />
         </S.ContentContainer>

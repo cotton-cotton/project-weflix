@@ -8,7 +8,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 
 const NewSlider = () => {
-  const settings = {
+  const setting = {
     dots: false,
     infinite: true,
     arrows: true,
@@ -19,21 +19,35 @@ const NewSlider = () => {
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '0px',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+    ],
     prevArrow: (
       <Prev>
-        <IoIosArrowBack size="30" color="#5C7187" />
+        <IoIosArrowBack size="25" color="#5C7187" />
       </Prev>
     ),
     nextArrow: (
       <Next>
-        <IoIosArrowForward size="30" color="#5C7187" />
+        <IoIosArrowForward size="25" color="#5C7187" />
       </Next>
     ),
   };
 
   return (
     <Wrapper>
-      <ListSlider {...settings}>
+      <ListSlider {...setting}>
         {NewListData &&
           NewListData.map(({ id, src, alt }) => {
             return <SliderImg key={id} src={src} alt={alt} />;
@@ -51,6 +65,7 @@ const ListSlider = styled(Slider)`
   }
 
   .slick-slide div {
+    margin-right: 10px;
     cursor: pointer;
   }
 
@@ -68,13 +83,13 @@ const Next = styled.div`
   bottom: 10%;
   z-index: 99;
   @media ${({ theme }) => theme.device.large} {
-    right: -3%;
-  }
-  @media ${({ theme }) => theme.device.medium} {
     right: -4%;
   }
+  @media ${({ theme }) => theme.device.medium} {
+    right: -5%;
+  }
   @media ${({ theme }) => theme.device.small} {
-    right: -6%;
+    right: -7%;
   }
 `;
 const Prev = styled.div`
@@ -85,28 +100,25 @@ const Prev = styled.div`
   bottom: 10%;
   z-index: 99;
   @media ${({ theme }) => theme.device.large} {
-    left: -3%;
+    left: -3.5%;
   }
   @media ${({ theme }) => theme.device.medium} {
-    left: -4%;
+    left: -4.5%;
   }
   @media ${({ theme }) => theme.device.small} {
-    left: -6%;
+    left: -7%;
   }
 `;
 const SliderImg = styled.img`
-  width: 400px;
-  height: 250px;
-  padding: 0 8px;
+  height: 200px;
   @media ${({ theme }) => theme.device.large} {
-    width: 320px;
-    height: 170px;
+    height: 180px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    height: 100px;
+    height: 120px;
   }
   @media ${({ theme }) => theme.device.small} {
-    height: 70px;
+    height: 80px;
   }
 `;
 export default NewSlider;

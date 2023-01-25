@@ -8,7 +8,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 
 const KidsNewSlider = () => {
-  const settings = {
+  const setting = {
     dots: false,
     infinite: true,
     arrows: true,
@@ -19,21 +19,35 @@ const KidsNewSlider = () => {
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: '0px',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+    ],
     prevArrow: (
       <Prev>
-        <IoIosArrowBack size="30" color="#5C7187" />
+        <IoIosArrowBack size="25" color="#5C7187" />
       </Prev>
     ),
     nextArrow: (
       <Next>
-        <IoIosArrowForward size="30" color="#5C7187" />
+        <IoIosArrowForward size="25" color="#5C7187" />
       </Next>
     ),
   };
 
   return (
     <Wrapper>
-      <ListSlider {...settings}>
+      <ListSlider {...setting}>
         {KidsNewSliderData &&
           KidsNewSliderData.map(({ id, background, imo }) => {
             return (
@@ -73,13 +87,13 @@ const Next = styled.div`
   bottom: 10%;
   z-index: 99;
   @media ${({ theme }) => theme.device.large} {
-    right: -3%;
-  }
-  @media ${({ theme }) => theme.device.medium} {
     right: -4%;
   }
+  @media ${({ theme }) => theme.device.medium} {
+    right: -5%;
+  }
   @media ${({ theme }) => theme.device.small} {
-    right: -6%;
+    right: -7%;
   }
 `;
 const Prev = styled.div`
@@ -90,28 +104,30 @@ const Prev = styled.div`
   bottom: 10%;
   z-index: 99;
   @media ${({ theme }) => theme.device.large} {
-    left: -3%;
+    left: -3.5%;
   }
   @media ${({ theme }) => theme.device.medium} {
-    left: -4%;
+    left: -4.5%;
   }
   @media ${({ theme }) => theme.device.small} {
-    left: -6%;
+    left: -7%;
   }
 `;
 const SliderBox = styled.div`
   height: 200px;
-  padding-right: 10px;
   background-color: ${({ background }) => background};
+  border: 3px solid white;
+  @media ${({ theme }) => theme.device.xLarge} {
+    height: 180px;
+  }
   @media ${({ theme }) => theme.device.large} {
-    width: 320px;
-    height: 170px;
+    height: 150px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    height: 100px;
+    height: 120px;
   }
   @media ${({ theme }) => theme.device.small} {
-    height: 70px;
+    height: 80px;
   }
 `;
 const Content = styled.div`
