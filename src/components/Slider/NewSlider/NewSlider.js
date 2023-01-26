@@ -7,6 +7,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 
+import SliderBox from '../../SliderBox/SliderBox';
+// import { SliderContainer } from '../../../pages/ContentList/ContentList.style';
+
 const NewSlider = () => {
   const setting = {
     dots: false,
@@ -50,7 +53,7 @@ const NewSlider = () => {
       <ListSlider {...setting}>
         {NewListData &&
           NewListData.map(({ id, src, alt }) => {
-            return <SliderImg key={id} src={src} alt={alt} />;
+            return <SliderBox key={id} src={src} alt={alt} />;
           })}
       </ListSlider>
     </Wrapper>
@@ -65,7 +68,7 @@ const ListSlider = styled(Slider)`
   }
 
   .slick-slide div {
-    margin-right: 10px;
+    margin-right: 5px;
     cursor: pointer;
   }
 
@@ -109,6 +112,10 @@ const Prev = styled.div`
     left: -7%;
   }
 `;
+const SliderContainer = styled.div`
+  border: 3px solid red;
+`;
+
 const SliderImg = styled.img`
   height: 200px;
   @media ${({ theme }) => theme.device.large} {

@@ -9,6 +9,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 
+import SliderBox from '../../SliderBox/SliderBox';
+
 const RecoSlider = () => {
   const setting = {
     dots: false,
@@ -52,7 +54,7 @@ const RecoSlider = () => {
       <ListSlider {...setting}>
         {RecoListData &&
           RecoListData.map(({ id, src, alt }) => {
-            return <SliderImg key={id} src={src} alt={alt} />;
+            return <SliderBox key={id} src={src} alt={alt} />;
           })}
       </ListSlider>
     </Wrapper>
@@ -67,7 +69,7 @@ const ListSlider = styled(Slider)`
   }
 
   .slick-slide div {
-    margin-right: 10px;
+    margin-right: 5px;
     cursor: pointer;
   }
 

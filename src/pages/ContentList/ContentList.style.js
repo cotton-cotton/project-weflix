@@ -61,8 +61,8 @@ export const Category = styled.p`
   color: ${({ theme }) => theme.mainBlue};
   font-size: ${({ theme }) => theme.large};
   font-weight: ${({ theme }) => theme.bold};
-  -webkit-text-stroke-width: 0.2px;
-  -webkit-text-stroke-color: #fff;
+  /* -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: #fff; */
   @media ${({ theme }) => theme.device.xLarge} {
     font-size: 25px;
   }

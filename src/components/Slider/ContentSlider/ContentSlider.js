@@ -5,6 +5,8 @@ import { ContentSliderData } from './ContentSliderData';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import SliderBox from '../../SliderBox/SliderBox';
+
 const ContentSlider = () => {
   const setting = {
     dots: false,
@@ -38,7 +40,7 @@ const ContentSlider = () => {
       <ListSlider {...setting}>
         {ContentSliderData &&
           ContentSliderData.map(({ id, src, alt }) => {
-            return <SliderImg key={id} src={src} alt={alt} />;
+            return <SliderBox key={id} src={src} alt={alt} />;
           })}
       </ListSlider>
     </Wrapper>
@@ -53,25 +55,10 @@ const ListSlider = styled(Slider)`
   }
 
   .slick-slide div {
-    margin-right: 10px;
+    margin-right: 5px;
     cursor: pointer;
   }
 `;
-// const SliderImg = styled.img`
-//   width: 400px;
-//   height: 250px;
-//   padding-right: 12px;
-//   @media ${({ theme }) => theme.device.large} {
-//     width: 320px;
-//     height: 170px;
-//   }
-//   @media ${({ theme }) => theme.device.medium} {
-//     height: 100px;
-//   }
-//   @media ${({ theme }) => theme.device.small} {
-//     height: 70px;
-//   }
-// `;
 const SliderImg = styled.img`
   height: 200px;
   @media ${({ theme }) => theme.device.xLarge} {

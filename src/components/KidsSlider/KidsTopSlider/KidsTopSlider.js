@@ -7,6 +7,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 
+import SliderBox from '../../SliderBox/SliderBox';
+
 const KidsTopSlider = () => {
   const setting = {
     dots: false,
@@ -49,12 +51,8 @@ const KidsTopSlider = () => {
     <Wrapper>
       <ListSlider {...setting}>
         {KidsTopSliderData &&
-          KidsTopSliderData.map(({ id, background, imo }) => {
-            return (
-              <SliderBox key={id} background={background}>
-                <Content>{imo}</Content>
-              </SliderBox>
-            );
+          KidsTopSliderData.map(({ id, src, alt }) => {
+            return <SliderBox key={id} src={src} alt={alt} />;
           })}
       </ListSlider>
     </Wrapper>
@@ -69,7 +67,7 @@ const ListSlider = styled(Slider)`
   }
 
   .slick-slide div {
-    margin-right: 10px;
+    margin-right: 5px;
     cursor: pointer;
   }
 
@@ -113,28 +111,28 @@ const Prev = styled.div`
     left: -7%;
   }
 `;
-const SliderBox = styled.div`
-  height: 200px;
-  background-color: ${({ background }) => background};
-  border: 3px solid white;
-  @media ${({ theme }) => theme.device.xLarge} {
-    height: 180px;
-  }
-  @media ${({ theme }) => theme.device.large} {
-    height: 150px;
-  }
-  @media ${({ theme }) => theme.device.medium} {
-    height: 120px;
-  }
-  @media ${({ theme }) => theme.device.small} {
-    height: 80px;
-  }
-`;
-const Content = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`;
+// const SliderBox = styled.div`
+//   height: 200px;
+//   background-color: ${({ background }) => background};
+//   border: 3px solid white;
+//   @media ${({ theme }) => theme.device.xLarge} {
+//     height: 180px;
+//   }
+//   @media ${({ theme }) => theme.device.large} {
+//     height: 150px;
+//   }
+//   @media ${({ theme }) => theme.device.medium} {
+//     height: 120px;
+//   }
+//   @media ${({ theme }) => theme.device.small} {
+//     height: 80px;
+//   }
+// `;
+// const Content = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+//   height: 100%;
+// `;
 export default KidsTopSlider;

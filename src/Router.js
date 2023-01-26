@@ -9,8 +9,6 @@ import UserProfile from './pages/UserProfile/UserProfile';
 import SelectProfile from './pages/SelectProfile/SelectProfile';
 import AddProfile from './pages/AddProfile/AddProfile';
 import ContentList from './pages/ContentList/ContentList';
-import DetailArray from './pages/DetailArray/DetailArray';
-// import ProfileData from './components/ProfileData/ProfileData';
 import KidsList from './pages/KidsList/KidsList';
 
 const Router = () => {
@@ -25,8 +23,6 @@ const Router = () => {
         <Route path="/profile/select" element={<SelectProfile />} />
         <Route path="/profile/add" element={<AddProfile />} />
         <Route path="/content/list" element={<ContentList />} />
-        <Route path="/content/all" element={<DetailArray />} />
-        {/* <Route path="/content/test" element={<ProfileData />} /> */}
         <Route path="/content/list/kids" element={<KidsList />} />
       </Routes>
       <Footer />
