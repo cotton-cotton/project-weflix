@@ -1,10 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SliderBox = ({ key, src, alt }) => {
+const SliderBox = ({
+  key,
+  src,
+  alt,
+  onMouseEnter,
+  onMouseLeave,
+  mouseIn,
+  mouse,
+}) => {
   return (
     <SliderContainer>
-      <SliderImg key={key} src={src} alt={alt} />
+      <SliderImg
+        key={key}
+        src={src}
+        alt={alt}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        mouseIn={mouseIn}
+        mouse={mouse}
+      />
     </SliderContainer>
   );
 };

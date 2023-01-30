@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -11,6 +11,9 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 
 const NewSlider = () => {
+  const [mouseIn, setMouseIn] = useState(false);
+  // const [mouseOut, setMouseOut] = useState(false);
+  console.log(mouseIn);
   const setting = {
     dots: false,
     infinite: true,
@@ -47,13 +50,22 @@ const NewSlider = () => {
       </Next>
     ),
   };
-
   return (
     <Wrapper>
       <ListSlider {...setting}>
         {NewListData &&
-          NewListData.map(({ id, src, alt }) => {
-            return <SliderBox key={id} src={src} alt={alt} />;
+          NewListData.map(({ id, src, alt, mouse }) => {
+            return (
+              <SliderBox
+                key={id}
+                src={src}
+                alt={alt}
+                // mouse={console.log(mouse)}
+                onMouseEnter={event => (event ? setMouseIn(true) : null)}
+                onMouseLeave={event => (event ? setMouseIn(false) : null)}
+                // mouseIn={mouseIn}
+              />
+            );
           })}
       </ListSlider>
     </Wrapper>
@@ -68,7 +80,7 @@ const ListSlider = styled(Slider)`
   }
 
   .slick-slide div {
-    margin-right: 5px;
+    margin-right: 2px;
     cursor: pointer;
   }
 
