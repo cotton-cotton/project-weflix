@@ -5,7 +5,7 @@ import { SignUpData } from '../SignUp/SignUpData';
 import API from '../Config/Config';
 
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -43,17 +43,6 @@ const SignUp = () => {
   const passwordReg = new RegExp(
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
   );
-  // 특수문자, 숫자, 소문자, 대문자 포함 8자 이상
-
-  const isCheckboxActive = () => {
-    setCheckboxActive(!checkboxActive);
-  };
-  const isActiveForm =
-    emailReg.test(userEmail) &&
-    passwordReg.test(userPassword) &&
-    isValidLetter &&
-    confirmVal &&
-    checkboxActive;
 
   const nameValidation = event => {
     const inputVal = event.target.value;
@@ -63,6 +52,7 @@ const SignUp = () => {
       setNameVal(false);
     }
   };
+
   const emailValidation = event => {
     const inputVal = event.target.value;
     if (emailReg.test(inputVal)) {
@@ -71,6 +61,7 @@ const SignUp = () => {
       setEmailVal(false);
     }
   };
+
   const passwordValidation = event => {
     const inputVal = event.target.value;
     if (passwordReg.test(inputVal)) {
@@ -79,24 +70,22 @@ const SignUp = () => {
       setPasswordVal(false);
     }
   };
-  // const confirmValidation = () => {
-  //   if (
-  //     userPassword === userPasswordConfirm &&
-  //     userPasswordConfirm.length > 1
-  //   ) {
-  //     setConfirmVal(true);
-  //   }
-  // };
-  // console.log(confirmVal);
-  console.log(userPassword);
-  console.log(userPasswordConfirm);
-  //console.log(val);
-  // const emailValidaiont = () => {
-  //   emailReg.test(userEmail);
-  // }
 
-  // const passwordValidaiton = () => {
-  //   passwordReg.test(userPassword);    }
+  const confirmValidation = event => {
+    const inputVal = event.target.value;
+    userPassword === inputVal ? setConfirmVal(true) : setConfirmVal(false);
+  };
+
+  const isCheckboxActive = () => {
+    setCheckboxActive(!checkboxActive);
+  };
+
+  const isActiveForm =
+    emailReg.test(userEmail) &&
+    passwordReg.test(userPassword) &&
+    isValidLetter &&
+    confirmVal &&
+    checkboxActive;
 
   const handleSubmitData = () => {
     if (!isActiveForm) {
@@ -108,36 +97,27 @@ const SignUp = () => {
           email: userEmail,
           password: userPassword,
         })
+        // axios({
+        //   method: 'post',
+        //   url: API.SIGN_UP,
+        //   data: {
+        //     name: userName,
+        //     email: userEmail,
+        //     password: userPassword,
+        //   },
+        // })
         .then(res => {
-          //navigate('/signin');
+          window.location.replace('/');
           console.log(res);
+          console.log('true');
         })
         .catch(error => {
           alert(error);
+          console.log('false');
         });
     }
   };
 
-  // 왜 안될까?
-  // const handleFetch = () => {
-  //   console.log('test');
-  //   fetch(URL, {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       name: inputValue.userName,
-  //       email: inputValue.userEmail,
-  //       password: inputValue.userPassword,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => {
-  //       if (result.message) {
-  //         console.log('성공', result);
-  //       } else {
-  //         console.log('실패');
-  //       }
-  //     });
-  // };
   return (
     <S.SignUpWrapper>
       <S.SignUpContainer>
@@ -159,6 +139,7 @@ const SignUp = () => {
                     nameValidation(event);
                     emailValidation(event);
                     passwordValidation(event);
+                    confirmValidation(event);
                   }}
                   nameVal={nameVal}
                   emailVal={emailVal}
@@ -171,8 +152,8 @@ const SignUp = () => {
           <S.ButtonContainer>
             <S.SignUpButton
               type="button"
-              //onClick={handleSubmitData}
-              disabled={isActiveForm ? true : false}
+              onClick={handleSubmitData}
+              disabled={isActiveForm ? false : true}
               isActiveForm={isActiveForm}
             >
               회원가입

@@ -30,12 +30,12 @@ export const AddBox = styled.section`
 `;
 export const TitleContainer = styled.section`
   width: 100%;
-  height: 20%;
+  height: 100px;
   @media ${({ theme }) => theme.device.large} {
-    height: 18%;
+    height: 80px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    height: 70px;
+    height: 60px;
   }
 `;
 export const Title = styled.p`
@@ -45,28 +45,28 @@ export const Title = styled.p`
   font-weight: ${({ theme }) => theme.light};
   letter-spacing: 2px;
   @media ${({ theme }) => theme.device.large} {
-    font-size: ${({ theme }) => theme.large};
+    font-size: ${({ theme }) => theme.xLarge};
   }
   @media ${({ theme }) => theme.device.medium} {
-    font-size: ${({ theme }) => theme.medium};
+    font-size: 1.25rem;
   }
-  @media ${({ theme }) => theme.device.medium} {
-    font-size: ${({ theme }) => theme.small};
+  @media ${({ theme }) => theme.device.small} {
+    font-size: ${({ theme }) => theme.semiMedium};
   }
 `;
 export const SubTitle = styled.p`
   color: ${({ theme }) => theme.middleGray};
-  font-size: ${({ theme }) => theme.medium};
+  font-size: ${({ theme }) => theme.large};
   letter-spacing: 1px;
   @media ${({ theme }) => theme.device.large} {
-    font-size: 15px;
+    font-size: ${({ theme }) => theme.medium};
   }
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.semiMedium};
     line-height: 20px;
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
     line-height: 18px;
   }
 `;
@@ -84,8 +84,8 @@ export const ProfileContainer = styled.section`
     height: 180px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 400px;
-    height: 150px;
+    width: 420px;
+    height: 160px;
   }
   @media ${({ theme }) => theme.device.small} {
     width: 300px;
@@ -98,14 +98,9 @@ export const InputContainer = styled.form`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  /* height: 40%; */
-  /* border: 1px solid teal; */
   @media ${({ theme }) => theme.device.small} {
-    /* flex-direction: column; */
     height: 170px;
     margin-bottom: 20px;
-    /* justify-content: space-between;
-    align-items: flex-start; */
   }
 `;
 export const Image = styled.div`
@@ -121,23 +116,18 @@ export const Image = styled.div`
     height: 100px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
   }
   @media ${({ theme }) => theme.device.small} {
     width: 60px;
     height: 60px;
   }
 `;
-// export const NamingBox = styled.div`
-//   display: flex;
-// `;
 export const InputBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 320px;
-  /* width: 78%; */
-  /* height: 70px; */
   @media ${({ theme }) => theme.device.xLarge} {
     width: 300px;
   }
@@ -145,7 +135,7 @@ export const InputBox = styled.div`
     width: 250px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 230px;
+    width: 240px;
   }
   @media ${({ theme }) => theme.device.small} {
     width: 160px;
@@ -162,13 +152,13 @@ export const Name = styled.input`
     font-size: ${({ theme }) => theme.medium};
     color: ${({ theme }) => theme.lightGray};
     @media ${({ theme }) => theme.device.large} {
-      font-size: 15px;
+      font-size: ${({ theme }) => theme.medium};
     }
     @media ${({ theme }) => theme.device.medium} {
-      font-size: 12px;
+      font-size: ${({ theme }) => theme.small};
     }
-    @media ${({ theme }) => theme.device.medium} {
-      font-size: 7px;
+    @media ${({ theme }) => theme.device.small} {
+      font-size: ${({ theme }) => theme.xSmall};
     }
   }
   @media ${({ theme }) => theme.device.large} {
@@ -183,18 +173,16 @@ export const Name = styled.input`
 `;
 export const Message = styled.p`
   margin-top: 5px;
-  font-size: ${({ theme }) => theme.small};
+  font-size: ${({ theme }) => theme.semiMedium};
   color: ${({ theme }) => theme.lightGray};
   @media ${({ theme }) => theme.device.large} {
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
   @media ${({ theme }) => theme.device.medium} {
     font-size: ${({ theme }) => theme.xSmall};
   }
   @media ${({ theme }) => theme.device.small} {
     font-size: ${({ theme }) => theme.xSmall};
-    -webkit-transform: scale(0.7);
-    display: inline-block;
   }
 `;
 export const DualCheck = styled.button`
@@ -208,21 +196,20 @@ export const DualCheck = styled.button`
   background-color: ${({ theme }) => theme.lightGray};
   border: none;
   outline: none;
-  margin-bottom: ${({ validMessage, theme }) => (validMessage ? 0 : '10px')};
+  margin-bottom: ${({ validMessage }) => (validMessage ? 0 : '10px')};
   @media ${({ theme }) => theme.device.large} {
     width: 55px;
     height: 30px;
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 50px;
+    width: 55px;
     height: 25px;
-    font-size: ${({ theme }) => theme.xSmall};
+    font-size: ${({ theme }) => theme.small};
   }
   @media ${({ theme }) => theme.device.small} {
     font-size: ${({ theme }) => theme.xSmall};
-    -webkit-transform: scale(0.7);
-    display: inline-block;
+    -webkit-transform: scale(0.9);
   }
 `;
 export const KidsContainer = styled.div`
@@ -233,6 +220,7 @@ export const KidsBox = styled.input`
   width: 20px;
   height: 20px;
   margin-right: 10px;
+  accent-color: ${({ theme }) => theme.middleGray};
   @media ${({ theme }) => theme.device.medium} {
     width: 15px;
     height: 15px;
@@ -243,13 +231,13 @@ export const KidsBox = styled.input`
   }
 `;
 export const KidsTitle = styled.p`
-  font-size: ${({ theme }) => theme.small};
+  font-size: ${({ theme }) => theme.semiMedium};
   color: ${({ theme }) => theme.lightGray};
   @media ${({ theme }) => theme.device.medium} {
-    font-size: ${({ theme }) => theme.small};
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 11px;
+    font-size: 0.688rem;
   }
 `;
 export const ButtonContainer = styled.section`
@@ -270,7 +258,7 @@ export const ButtonContainer = styled.section`
 export const Confirm = styled.button`
   width: 65px;
   height: 35px;
-  font-size: 15px;
+  font-size: ${({ theme }) => theme.medium};
   border: none;
   outline: none;
   text-align: center;
@@ -282,12 +270,12 @@ export const Confirm = styled.button`
   @media ${({ theme }) => theme.device.large} {
     width: 63px;
     height: 30px;
-    font-size: ${({ theme }) => theme.small};
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.medium} {
     width: 60px;
     height: 23px;
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
   @media ${({ theme }) => theme.device.small} {
     width: 40px;
@@ -299,7 +287,7 @@ export const Cancel = styled.button`
   width: 65px;
   height: 35px;
   color: ${({ theme }) => theme.middleGray};
-  font-size: 15px;
+  font-size: ${({ theme }) => theme.medium};
   text-align: center;
   border: 1px solid #7f7b7b;
   border-radius: 3px;
@@ -308,12 +296,12 @@ export const Cancel = styled.button`
   @media ${({ theme }) => theme.device.large} {
     width: 63px;
     height: 30px;
-    font-size: ${({ theme }) => theme.small};
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.medium} {
     width: 60px;
     height: 23px;
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
   @media ${({ theme }) => theme.device.small} {
     width: 40px;

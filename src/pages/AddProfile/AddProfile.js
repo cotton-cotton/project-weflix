@@ -12,17 +12,12 @@ const backgroundList = ['#80b6f7', '#f7d0b7', '#c3a2f2', '#80f7d9', '#f7b7f6'];
 
 const AddProfile = () => {
   const dispatch = useDispatch();
-  // reduxToolkit 데이터 담은 변수
   const profileList = useSelector(state => state.profile.profileList);
 
   const [profileName, setProfileName] = useState({
     userName: '',
   });
-  // 배경색 랜덤으로 뽑기
 
-  //const [backgroundColor, setBackgroundColor] = useState('');
-
-  //const [addProfile, setAddProfile] = useState([]);
   const [validMessage, setValidMessage] = useState(true);
   const [validButton, setValidButton] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -81,7 +76,7 @@ const AddProfile = () => {
     kids: isChecked,
     background: backgroundColor,
     imo: <BsPencilSquare size="50" color="#fff" opacity="50%" />,
-    del: <TiDeleteOutline size="20" />,
+    del: <TiDeleteOutline size="15" />,
   };
 
   const onDualChecking = () => {
@@ -110,7 +105,6 @@ const AddProfile = () => {
   };
   const onCreate = () => {
     if (validButton) {
-      console.log(user);
       dispatch(profileActions.addProfile({ data: user }));
       nextId.current += 1;
     } else {
@@ -133,7 +127,6 @@ const AddProfile = () => {
               <S.Image>
                 <RiStarSmileLine size="80" color="#fff" />
               </S.Image>
-              {/* <S.NamingBox> */}
               <S.InputBox>
                 <S.Name
                   type="text"
@@ -158,14 +151,10 @@ const AddProfile = () => {
               >
                 중복확인
               </S.DualCheck>
-              {/* </S.NamingBox> */}
             </S.InputContainer>
             <S.KidsContainer>
               <S.KidsBox
                 type="checkbox"
-                // onChange={event => {
-                //   onCheckedKids(event.target.checked);
-                // }}
                 onChange={event =>
                   event.target.checked
                     ? setIsChecked(true)
@@ -175,7 +164,6 @@ const AddProfile = () => {
               <S.KidsTitle>어린이인가요?</S.KidsTitle>
             </S.KidsContainer>
           </S.ProfileContainer>
-
           <S.ButtonContainer>
             <Link to="/profile/user">
               <S.Confirm

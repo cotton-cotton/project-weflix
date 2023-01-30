@@ -23,36 +23,37 @@ export const SignInContainer = styled.div`
   }
   @media ${({ theme }) => theme.device.small} {
     width: 280px;
-    height: 230px;
+    height: 320px;
   }
 `;
 export const EntryContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 70%;
-  height: 65%;
-  margin-bottom: 20px;
+  width: 320px;
+  height: 250px;
   @media ${({ theme }) => theme.device.large} {
-    width: 68%;
+    width: 280px;
+    height: 230px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 65%;
-    height: 72%;
+    width: 220px;
+    height: 200px;
   }
   @media ${({ theme }) => theme.device.small} {
-    width: 57%;
+    width: 160px;
+    height: 140px;
   }
 `;
 export const Title = styled.p`
   margin-bottom: 20px;
   color: ${({ theme }) => theme.white};
-  font-size: ${({ theme }) => theme.large};
+  font-size: ${({ theme }) => theme.xLarge};
   @media ${({ theme }) => theme.device.large} {
     font-size: 25px;
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.semiLarge};
   }
 `;
 export const ButtonContainer = styled.div``;
@@ -62,7 +63,7 @@ export const SignInButton = styled.button`
   justify-content: center;
   width: 100%;
   height: 50px;
-  font-size: ${({ theme }) => theme.medium};
+  font-size: ${({ theme }) => theme.large};
   letter-spacing: 1px;
   border-radius: 5px;
   border: none;
@@ -72,29 +73,14 @@ export const SignInButton = styled.button`
   cursor: ${({ isActiveForm }) => (isActiveForm ? 'pointer' : null)};
   @media ${({ theme }) => theme.device.large} {
     height: 45px;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.semiLarge};
   }
   @media ${({ theme }) => theme.device.medium} {
     height: 40px;
-    font-size: ${({ theme }) => theme.small};
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.small} {
     height: 28px;
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
   }
 `;
-// export const CheckboxContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   width: 70%;
-// `;
-// export const SaveInfo = styled.input`
-//   width: 20px;
-//   height: 20px;
-//   margin-right: 7px;
-//   border: none;
-//   accent-color: ${({ theme }) => theme.middleGray};
-// `;
-// export const CheckboxContent = styled.p`
-//   color: ${({ theme }) => theme.lightGray};
-// `;

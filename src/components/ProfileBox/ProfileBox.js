@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TiDeleteOutline } from 'react-icons/ti';
 
 const ProfileBox = ({ key, id, userName, background, imo, del, onClick }) => {
   return (
@@ -22,6 +21,10 @@ const ProfileBoxWrapper = styled.div`
   justify-content: space-between;
   padding: 0 10px;
   height: 100%;
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 `;
 
 const Imo = styled.div``;
@@ -61,18 +64,18 @@ const DeleteBtn = styled.button`
 `;
 const Name = styled.p`
   color: ${({ theme }) => theme.lightGray};
-  font-size: ${({ theme }) => theme.medium};
+  font-size: 1.25rem;
   font-weight: ${({ theme }) => theme.normal};
   letter-spacing: 2px;
   text-align: center;
   @media ${({ theme }) => theme.device.large} {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.semiLarge};
   }
   @media ${({ theme }) => theme.device.medium} {
-    font-size: ${({ theme }) => theme.small};
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
 `;
 

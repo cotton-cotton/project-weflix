@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
-import { KidsNewSliderData } from '../KidsNewSlider/KidsNewSliderData';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+import { KidsNewSliderData } from '../KidsNewSlider/KidsNewSliderData';
+import SliderBox from '../../SliderBox/SliderBox';
+
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
-
-import SliderBox from '../../SliderBox/SliderBox';
 
 const KidsNewSlider = () => {
   const setting = {
@@ -111,28 +112,5 @@ const Prev = styled.div`
     left: -7%;
   }
 `;
-// const SliderBox = styled.div`
-//   height: 200px;
-//   background-color: ${({ background }) => background};
-//   border: 3px solid white;
-//   @media ${({ theme }) => theme.device.xLarge} {
-//     height: 180px;
-//   }
-//   @media ${({ theme }) => theme.device.large} {
-//     height: 150px;
-//   }
-//   @media ${({ theme }) => theme.device.medium} {
-//     height: 120px;
-//   }
-//   @media ${({ theme }) => theme.device.small} {
-//     height: 80px;
-//   }
-// `;
-// const Content = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 100%;
-//   height: 100%;
-// `;
+
 export default KidsNewSlider;

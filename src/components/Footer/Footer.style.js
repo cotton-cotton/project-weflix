@@ -20,21 +20,21 @@ export const FooterWrapper = styled.footer`
 export const TopContainer = styled.section``;
 export const WeFlix = styled.p`
   margin-bottom: 12px;
-  font-size: 18px;
+  font-size: ${({ theme }) => theme.large};
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.semiLarge};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.semiMedium};
   }
 `;
 export const Tel = styled.p`
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.semiLarge};
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
 `;
 export const CenterContainer = styled.section`
@@ -47,12 +47,12 @@ export const Column = styled.div`
   align-items: flex-start;
   margin-right: 20px;
   line-height: 40px;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.semiLarge};
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
 `;
 export const FirstRow = styled.p``;
@@ -60,25 +60,25 @@ export const SecondRow = styled.p``;
 export const BottomContainer = styled.section``;
 export const Title = styled.p`
   margin-bottom: 20px;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.semiLarge};
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 13px;
+    font-size: 0.813rem;
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
 `;
 export const Intro = styled.p`
   line-height: 30px;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.semiLarge};
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
     line-height: 25px;
   }
 `;

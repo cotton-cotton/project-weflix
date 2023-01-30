@@ -6,6 +6,15 @@ export const SelectWrapper = styled.main`
   height: 100vh;
   padding-top: 100px;
   background-color: ${({ theme }) => theme.black};
+  @media ${({ theme }) => theme.device.large} {
+    height: 700px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    height: 600px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    height: 500px;
+  }
 `;
 export const SelectContainer = styled.section`
   display: flex;
@@ -20,13 +29,13 @@ export const Title = styled.p`
   font-weight: ${({ theme }) => theme.light};
   letter-spacing: 2px;
   @media ${({ theme }) => theme.device.large} {
-    font-size: ${({ theme }) => theme.large};
+    font-size: ${({ theme }) => theme.xLarge};
   }
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: ${({ theme }) => theme.medium};
+    font-size: ${({ theme }) => theme.large};
   }
 `;
 export const ImageContainer = styled.section`
@@ -51,7 +60,7 @@ export const Image = styled.img`
 `;
 export const Name = styled.p`
   color: ${({ theme }) => theme.lightGray};
-  font-size: ${({ theme }) => theme.medium};
+  font-size: ${({ theme }) => theme.large};
   font-weight: ${({ theme }) => theme.normal};
   letter-spacing: 2px;
 `;
@@ -75,7 +84,7 @@ export const ModifyButton = styled.button`
   height: 40px;
   margin-top: 40px;
   color: ${({ theme }) => theme.middleGray};
-  font-size: ${({ theme }) => theme.medium};
+  font-size: ${({ theme }) => theme.large};
   font-weight: ${({ theme }) => theme.normal};
   border: 2px solid #7f7b7b;
   border-radius: 3px;
@@ -84,19 +93,17 @@ export const ModifyButton = styled.button`
   @media ${({ theme }) => theme.device.large} {
     width: 100px;
     height: 40px;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.semiLarge};
   }
   @media ${({ theme }) => theme.device.medium} {
     width: 75px;
     height: 30px;
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
   @media ${({ theme }) => theme.device.small} {
     width: 65px;
     height: 25px;
     margin-top: 30px;
-    font-size: 10px;
-    -webkit-transform: scale(0.8);
-    display: inline-block;
+    font-size: ${({ theme }) => theme.xSmall};
   }
 `;

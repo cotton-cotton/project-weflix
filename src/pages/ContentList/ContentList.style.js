@@ -59,21 +59,19 @@ export const Category = styled.p`
   align-items: center;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.mainBlue};
-  font-size: ${({ theme }) => theme.large};
+  font-size: ${({ theme }) => theme.xLarge};
   font-weight: ${({ theme }) => theme.bold};
-  /* -webkit-text-stroke-width: 0.2px;
-  -webkit-text-stroke-color: #fff; */
   @media ${({ theme }) => theme.device.xLarge} {
-    font-size: 25px;
+    font-size: 1.563rem;
   }
   @media ${({ theme }) => theme.device.large} {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   @media ${({ theme }) => theme.device.medium} {
-    font-size: ${({ theme }) => theme.medium};
+    font-size: ${({ theme }) => theme.large};
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 14px;
+    font-size: ${({ theme }) => theme.semiMedium};
   }
 `;
 export const ContentContainer = styled.div`

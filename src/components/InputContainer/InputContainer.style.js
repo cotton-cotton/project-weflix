@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
-export const InputWrapper = styled.div`
-  /* display: flex;
-  justify-content: center; */
-`;
+export const InputWrapper = styled.div``;
 export const InputContainer = styled.input`
   width: 100%;
   height: 50px;
@@ -20,10 +17,10 @@ export const InputContainer = styled.input`
       font-size: 13px;
     }
     @media ${({ theme }) => theme.device.medium} {
-      font-size: 12px;
+      font-size: ${({ theme }) => theme.small};
     }
     @media ${({ theme }) => theme.device.small} {
-      font-size: 8px;
+      font-size: ${({ theme }) => theme.xSmall};
     }
   }
   border-bottom: ${({ id, focus }) =>
@@ -36,18 +33,19 @@ export const InputContainer = styled.input`
   }
   @media ${({ theme }) => theme.device.small} {
     height: 28px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 `;
 export const InputMsg = styled.p`
   margin-bottom: 4px;
   color: ${({ theme }) => theme.white};
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.small};
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
   }
   @media ${({ theme }) => theme.device.small} {
     margin-bottom: 6px;
-    font-size: 3px;
+    font-size: 10px;
+    -webkit-transform: scale(0.9);
   }
 `;

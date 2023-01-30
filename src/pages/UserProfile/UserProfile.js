@@ -2,9 +2,10 @@ import React from 'react';
 import * as S from './UserProfile.style';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import ProfileBox from '../../components/ProfileBox/ProfileBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { profileActions } from '../App/profileSlice';
+
+import ProfileBox from '../../components/ProfileBox/ProfileBox';
 
 import { IoMdAddCircle } from 'react-icons/io';
 
@@ -27,7 +28,7 @@ const UserProfile = () => {
     const removedList = profileList.filter(list => list.userName !== userName);
     dispatch(profileActions.deleteProfile({ data: removedList }));
   };
-  //console.log(profileList);
+
   return (
     <S.SelectWrapper>
       <S.ProfileContainer>
@@ -40,7 +41,7 @@ const UserProfile = () => {
                 id={list.id}
                 userName={list.userName}
                 background={list.background}
-                onClick={event => onRemove(list.userName)}
+                onClick={() => onRemove(list.userName)}
                 imo={list.imo}
                 del={list.del}
               />
@@ -48,7 +49,7 @@ const UserProfile = () => {
           })}
           <S.ProfileAdd onClick={event => preventProfile(event)}>
             <S.Add>
-              <IoMdAddCircle size="100" color="#7f7b7b" />
+              <IoMdAddCircle size="70" color="#7f7b7b" />
             </S.Add>
             <S.Name>프로필 추가</S.Name>
           </S.ProfileAdd>

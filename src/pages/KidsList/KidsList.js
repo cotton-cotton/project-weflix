@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './KidsList.style';
 import { Link } from 'react-router-dom';
+
 import KidsContentSlider from '../../components/KidsSlider/KidsContentSlider/KidsContentSlider';
 import KidsNewSlider from '../../components/KidsSlider/KidsNewSlider/KidsNewSlider';
 import KidsRecoSlider from '../../components/KidsSlider/KidsRecoSlider/KidsRecoSlider';

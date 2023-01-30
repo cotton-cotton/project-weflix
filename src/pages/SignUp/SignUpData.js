@@ -17,14 +17,14 @@ export const SignUpData = [
     id: 'password',
     name: 'userPassword',
     placeholder: '비밀번호',
-    type: 'text',
+    type: 'password',
     message: { password: '대소문자, 특수문자, 숫자 1자이상 포함해야됩니다.' },
   },
   {
     id: 'passwordConfirm',
     name: 'userPasswordConfirm',
     placeholder: '비밀번호 확인',
-    type: 'text',
+    type: 'password',
     message: { confirm: '비밀번호와 일치하지 않습니다.' },
   },
 ];

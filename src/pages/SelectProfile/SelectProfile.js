@@ -2,9 +2,9 @@ import React from 'react';
 import * as S from '../SelectProfile/SelectProfile.style';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import ProfileBox from '../../components/ProfileBox/ProfileBox';
-
 import { useSelector } from 'react-redux';
+
+import ProfileBox from '../../components/ProfileBox/ProfileBox';
 
 const SelectProfile = () => {
   const navigate = useNavigate();

@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
-import { RecoListData } from '../RecoSlider/RecoSliderData';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-// import { ReactComponent as Next } from '../../assets/next.svg';
-// import { ReactComponent as Prev } from '../../assets/prev.svg';
+
+import { RecoListData } from '../RecoSlider/RecoSliderData';
+import SliderBox from '../../SliderBox/SliderBox';
+
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
-
-import SliderBox from '../../SliderBox/SliderBox';
 
 const RecoSlider = () => {
   const setting = {
@@ -113,19 +112,5 @@ const Prev = styled.div`
     left: -7%;
   }
 `;
-const SliderImg = styled.img`
-  height: 200px;
-  @media ${({ theme }) => theme.device.xLarge} {
-    height: 180px;
-  }
-  @media ${({ theme }) => theme.device.large} {
-    height: 150px;
-  }
-  @media ${({ theme }) => theme.device.medium} {
-    height: 120px;
-  }
-  @media ${({ theme }) => theme.device.small} {
-    height: 80px;
-  }
-`;
+
 export default RecoSlider;

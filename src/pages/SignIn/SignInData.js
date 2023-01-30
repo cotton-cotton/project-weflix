@@ -10,7 +10,7 @@ export const SignInData = [
     id: 'password',
     name: 'userPassword',
     placeholder: '비밀번호',
-    type: 'text',
+    type: 'password',
     message: { password: '대소문자, 특수문자, 숫자 1자이상 포함해야됩니다.' },
   },
 ];

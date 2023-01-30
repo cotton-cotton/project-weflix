@@ -47,8 +47,11 @@ const InputContainer = ({
       {!passwordVal && letterMessage ? (
         <S.InputMsg>{message.password}</S.InputMsg>
       ) : null}
-      {/* {!confirmVal && letterMessage ? <S.test>{message.confirm}</S.test> : null} */}
+      {!confirmVal && letterMessage ? (
+        <S.InputMsg>{message.confirm}</S.InputMsg>
+      ) : null}
     </S.InputWrapper>
   );
 };
+
 export default InputContainer;

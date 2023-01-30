@@ -9,7 +9,7 @@ const Main = () => {
           <S.BackImg src="/images/main-background.jpeg" alt="background" />
         </S.Background>
         <S.Content>
-          <S.Title>다큐멘터리를 무제한으로</S.Title>
+          <S.Title>컨텐츠를 무제한으로</S.Title>
           <S.SubTitle>
             다양한 디바이스에서 시청하세요. 언제든 해지하실 수 있습니다.
           </S.SubTitle>
@@ -46,7 +46,7 @@ const Main = () => {
           <S.ListImg src="/images/자이로드롭.jpg" alt="list-img" />
           <S.InfoContainer>
             <S.ListTitle>
-              {'즐겨보는 콘텐츠를 저장해\n오프라인으로 시청하세요'}
+              {'즐겨보는 컨텐츠를 저장해\n오프라인으로 시청하세요'}
             </S.ListTitle>
             <S.ListSubTitle>
               간편하게 저장하고 빈틈없이 즐겨보세요.
@@ -85,4 +85,5 @@ const Main = () => {
     </S.MainWrapper>
   );
 };
+
 export default Main;

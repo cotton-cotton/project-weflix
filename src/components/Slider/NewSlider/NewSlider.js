@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
-import { NewListData } from '../NewSlider/NewSliderData';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+import { NewListData } from '../NewSlider/NewSliderData';
+import SliderBox from '../../SliderBox/SliderBox';
+
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
-
-import SliderBox from '../../SliderBox/SliderBox';
-// import { SliderContainer } from '../../../pages/ContentList/ContentList.style';
 
 const NewSlider = () => {
   const setting = {
@@ -112,20 +112,5 @@ const Prev = styled.div`
     left: -7%;
   }
 `;
-const SliderContainer = styled.div`
-  border: 3px solid red;
-`;
 
-const SliderImg = styled.img`
-  height: 200px;
-  @media ${({ theme }) => theme.device.large} {
-    height: 180px;
-  }
-  @media ${({ theme }) => theme.device.medium} {
-    height: 120px;
-  }
-  @media ${({ theme }) => theme.device.small} {
-    height: 80px;
-  }
-`;
 export default NewSlider;

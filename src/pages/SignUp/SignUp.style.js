@@ -27,20 +27,19 @@ export const EntryContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 70%;
-  height: 70%;
+  width: 320px;
+  height: 400px;
   margin-bottom: 20px;
   @media ${({ theme }) => theme.device.large} {
-    width: 68%;
+    width: 280px;
+    height: 350px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 65%;
+    width: 220px;
+    height: 310px;
   }
   @media ${({ theme }) => theme.device.small} {
-    width: 65%;
-  }
-  @media ${({ theme }) => theme.device.small} {
-    width: 57%;
+    width: 160px;
   }
 `;
 export const Title = styled.p`
@@ -51,7 +50,7 @@ export const Title = styled.p`
     font-size: 25px;
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.semiLarge};
   }
 `;
 export const ButtonContainer = styled.div``;
@@ -61,7 +60,7 @@ export const SignUpButton = styled.button`
   justify-content: center;
   width: 100%;
   height: 50px;
-  font-size: ${({ theme }) => theme.medium};
+  font-size: ${({ theme }) => theme.large};
   letter-spacing: 1px;
   border-radius: 5px;
   border: none;
@@ -71,31 +70,30 @@ export const SignUpButton = styled.button`
   cursor: ${({ isActiveForm }) => (isActiveForm ? 'pointer' : null)};
   @media ${({ theme }) => theme.device.large} {
     height: 45px;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.semiLarge};
   }
   @media ${({ theme }) => theme.device.medium} {
     height: 40px;
-    font-size: ${({ theme }) => theme.small};
+    font-size: ${({ theme }) => theme.semiMedium};
   }
   @media ${({ theme }) => theme.device.small} {
     height: 28px;
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
   }
 `;
 export const CheckboxContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 70%;
+  width: 320px;
   @media ${({ theme }) => theme.device.large} {
-    width: 68%;
+    width: 280px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 65%;
+    width: 220px;
   }
   @media ${({ theme }) => theme.device.small} {
-    width: 57%;
-    margin-top: 8px;
+    width: 160px;
   }
 `;
 export const PolicyAgree = styled.span`
@@ -140,13 +138,14 @@ export const Personal = styled.input`
 export const CheckboxContent = styled.p`
   color: ${({ theme }) => theme.lightGray};
   @media ${({ theme }) => theme.device.large} {
-    font-size: 15px;
+    font-size: ${({ theme }) => theme.medium};
   }
   @media ${({ theme }) => theme.device.medium} {
     font-size: 13px;
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 10px;
+    font-size: ${({ theme }) => theme.xSmall};
   }
 `;
+
 export const InputWrapper = styled.div``;

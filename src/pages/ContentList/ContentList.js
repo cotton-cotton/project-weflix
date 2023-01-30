@@ -1,19 +1,16 @@
 import React from 'react';
 import * as S from './ContentList.style';
+
 import ContentSlider from '../../components/Slider/ContentSlider/ContentSlider';
 import NewSlider from '../../components/Slider/NewSlider/NewSlider';
 import RecoSlider from '../../components/Slider/RecoSlider/RecoSlider';
 import TopSlider from '../../components/Slider/TopSlider/TopSlider';
 
-import { useSelector } from 'react-redux';
-
 const ContentList = () => {
-  const profileList = useSelector(state => state.profile.profileList);
-  console.log(profileList);
   return (
     <S.MainWrapper>
       <S.SliderContent>
-        <S.Category>당신이 원하는 다큐멘터리를 어디서나 시청하세요</S.Category>
+        <S.Category>당신이 원하는 컨텐츠를 어디서나 시청하세요</S.Category>
         <S.Slider>
           <ContentSlider />
         </S.Slider>

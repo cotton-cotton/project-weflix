@@ -6,8 +6,11 @@ export const Wrapper = styled.nav`
   justify-content: space-between;
   width: 100%;
   height: 100px;
-  padding: 0 60px;
+  padding: 0 80px;
   background-color: ${({ theme }) => theme.navBlack};
+  @media ${({ theme }) => theme.device.small} {
+    padding: 0 60px;
+  }
 `;
 export const LogoContainer = styled.div``;
 export const Logo = styled.img`
@@ -22,18 +25,18 @@ export const Logo = styled.img`
 export const LogInContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 12%;
+  width: 210px;
   @media ${({ theme }) => theme.device.xLarge} {
-    width: 14%;
+    width: 200px;
   }
   @media ${({ theme }) => theme.device.large} {
-    width: 20%;
+    width: 180px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 25%;
+    width: 160px;
   }
   @media ${({ theme }) => theme.device.small} {
-    width: 35%;
+    width: 130px;
   }
 `;
 export const SignIn = styled.button`
@@ -41,7 +44,7 @@ export const SignIn = styled.button`
   height: 40px;
   color: ${({ theme }) => theme.white};
   background-color: ${({ theme }) => theme.mainBlue};
-  font-size: ${({ theme }) => theme.medium};
+  font-size: ${({ theme }) => theme.large};
   font-weight: 500;
   letter-spacing: 2px;
   border-radius: 5px;
@@ -52,12 +55,12 @@ export const SignIn = styled.button`
   }
   @media ${({ theme }) => theme.device.medium} {
     width: 70px;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.semiLarge};
   }
   @media ${({ theme }) => theme.device.small} {
     width: 60px;
     height: 30px;
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
   }
 `;
 export const SignUp = styled.button`
@@ -65,8 +68,8 @@ export const SignUp = styled.button`
   height: 40px;
   color: ${({ theme }) => theme.white};
   background-color: ${({ theme }) => theme.mainBlue};
-  font-size: 18px;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.large};
+  font-weight: ${({ theme }) => theme.normal};
   letter-spacing: 2px;
   border-radius: 5px;
   border: none;
@@ -76,46 +79,95 @@ export const SignUp = styled.button`
   }
   @media ${({ theme }) => theme.device.medium} {
     width: 70px;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.semiLarge};
   }
   @media ${({ theme }) => theme.device.small} {
     width: 60px;
     height: 30px;
-    font-size: 12px;
+    font-size: ${({ theme }) => theme.small};
+  }
+`;
+export const Logout = styled.button`
+  width: 90px;
+  height: 40px;
+  color: ${({ theme }) => theme.white};
+  background-color: ${({ theme }) => theme.mainBlue};
+  font-size: ${({ theme }) => theme.large};
+  font-weight: ${({ theme }) => theme.normal};
+  letter-spacing: 2px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  @media ${({ theme }) => theme.device.large} {
+    width: 80px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    width: 70px;
+    font-size: ${({ theme }) => theme.semiLarge};
+  }
+  @media ${({ theme }) => theme.device.small} {
+    width: 60px;
+    height: 30px;
+    font-size: ${({ theme }) => theme.small};
+  }
+`;
+export const Profile = styled.button`
+  width: 90px;
+  height: 40px;
+  color: ${({ theme }) => theme.white};
+  background-color: ${({ theme }) => theme.mainBlue};
+  font-size: ${({ theme }) => theme.large};
+  font-weight: ${({ theme }) => theme.normal};
+  letter-spacing: 2px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  @media ${({ theme }) => theme.device.large} {
+    width: 80px;
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    width: 70px;
+    font-size: ${({ theme }) => theme.semiLarge};
+  }
+  @media ${({ theme }) => theme.device.small} {
+    width: 60px;
+    height: 30px;
+    font-size: ${({ theme }) => theme.small};
   }
 `;
 export const SignUpModal = styled.div`
   position: absolute;
-  top: 12%;
+  top: 11%;
   left: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 99;
   @media ${({ theme }) => theme.device.large} {
-    left: 32%;/
+    left: 32%;
   }
   @media ${({ theme }) => theme.device.medium} {
-    left: 28%;/
+    left: 28%;
   }
   @media ${({ theme }) => theme.device.small} {
-    left: 23%;/
+    left: 23%;
   }
 `;
 export const SignInModal = styled.div`
   position: absolute;
-  top: 10%;
+  top: 11%;
   left: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 99;
   @media ${({ theme }) => theme.device.large} {
-    top: 12%;
     left: 32%;
   }
   @media ${({ theme }) => theme.device.medium} {
-    top: 12%;
     left: 28%;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    left: 25%;
   }
 `;

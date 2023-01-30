@@ -4,7 +4,7 @@ import InputContainer from '../../components/InputContainer/InputContainer';
 import { SignInData } from '../SignIn/SignInData';
 import axios from 'axios';
 import API from '../Config/Config';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -33,7 +33,6 @@ const SignIn = () => {
   const passwordReg = new RegExp(
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])(?=.*[0-9])[A-Za-z\\d$@$!%*?&]{8,45}'
   );
-  // 특수문자, 숫자, 소문자, 대문자 포함 8자 이상
 
   const isActiveForm =
     emailReg.test(userEmail) && passwordReg.test(userPassword) && isValidLetter;
@@ -62,11 +61,14 @@ const SignIn = () => {
         password: userPassword,
       })
       .then(res => {
-        navigate('/');
-        console.log(res.data.data.token);
+        window.location.replace('/profile/user');
+        console.log(res.data.access);
+        localStorage.setItem('token', JSON.stringify(res.data.access));
+        console.log('true');
       })
       .catch(error => {
         alert(error);
+        console.log('false');
       });
   };
 
@@ -99,7 +101,7 @@ const SignIn = () => {
             <S.SignInButton
               type="button"
               onClick={handleData}
-              disabled={isActiveForm ? true : false}
+              disabled={isActiveForm ? false : true}
               isActiveForm={isActiveForm}
             >
               로그인

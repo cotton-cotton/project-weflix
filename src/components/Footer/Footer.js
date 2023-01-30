@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from '../Footer/Footer.style';
+
 import { FaRegSmileWink } from 'react-icons/fa';
 
 const Footer = () => {
@@ -41,4 +42,5 @@ const Footer = () => {
     </S.FooterWrapper>
   );
 };
+
 export default Footer;

@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as S from '../Nav/Nav.style';
 import { Link } from 'react-router-dom';
+
 import SignUp from '../../pages/SignUp/SignUp';
 import SignIn from '../../pages/SignIn/SignIn';
 
 const Nav = () => {
+  const userToken = localStorage.getItem('token');
+
   const [signUpModal, setSignUpModal] = useState(false);
   const [signInModal, setSignInModal] = useState(false);
   const el = useRef();
@@ -29,6 +32,12 @@ const Nav = () => {
     };
   }, [signUpModal, signInModal]);
 
+  const onLogout = () => {
+    localStorage.removeItem('token');
+    alert('로그아웃 되었습니다.');
+    window.location.replace('/');
+  };
+
   return (
     <S.Wrapper>
       <S.LogoContainer>
@@ -37,10 +46,25 @@ const Nav = () => {
         </Link>
       </S.LogoContainer>
       <S.LogInContainer ref={el}>
-        <S.SignUp onClick={() => setSignUpModal(pre => !pre)}>SignUp</S.SignUp>
-        <S.SignUpModal>{signUpModal ? <SignUp /> : null}</S.SignUpModal>
-        <S.SignIn onClick={() => setSignInModal(pre => !pre)}>SignIn</S.SignIn>
-        <S.SignInModal>{signInModal ? <SignIn /> : null}</S.SignInModal>
+        {!userToken ? (
+          <>
+            <S.SignUp onClick={() => setSignUpModal(pre => !pre)}>
+              SignUp
+            </S.SignUp>
+            <S.SignUpModal>{signUpModal ? <SignUp /> : null}</S.SignUpModal>
+            <S.SignIn onClick={() => setSignInModal(pre => !pre)}>
+              SignIn
+            </S.SignIn>
+            <S.SignInModal>{signInModal ? <SignIn /> : null}</S.SignInModal>
+          </>
+        ) : (
+          <>
+            <S.Logout onClick={() => onLogout()}>Logout</S.Logout>
+            <Link to="/profile/user">
+              <S.Profile>Profile</S.Profile>
+            </Link>
+          </>
+        )}
       </S.LogInContainer>
     </S.Wrapper>
   );
