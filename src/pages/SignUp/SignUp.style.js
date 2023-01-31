@@ -147,5 +147,9 @@ export const CheckboxContent = styled.p`
     font-size: ${({ theme }) => theme.xSmall};
   }
 `;
-
+export const test = styled.div`
+  width: 500px;
+  height: 500px;
+  background-color: white;
+`;
 export const InputWrapper = styled.div``;

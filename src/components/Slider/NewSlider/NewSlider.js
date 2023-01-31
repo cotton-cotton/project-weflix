@@ -13,7 +13,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 const NewSlider = () => {
   const [mouseIn, setMouseIn] = useState(false);
   // const [mouseOut, setMouseOut] = useState(false);
-  console.log(mouseIn);
+  // console.log(mouseIn);
   const setting = {
     dots: false,
     infinite: true,

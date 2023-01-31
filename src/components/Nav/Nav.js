@@ -31,13 +31,31 @@ const Nav = () => {
       document.removeEventListener('click', closeSignInModal);
     };
   }, [signUpModal, signInModal]);
+  // useEffect(() => {
+  //   const closeSignUpModal = event => {
+  //     if (signUpModal && el.current && !el.current.contains(event.target)) {
+  //       setSignUpModal(false);
+  //     }
+  //   };
+  //   // const closeSignInModal = event => {
+  //   //   if (signInModal && el.current && !el.current.contains(event.target)) {
+  //   //     setSignInModal(false);
+  //   //   }
+  //   // };
+  //   document.addEventListener('click', closeSignUpModal);
+  //   // document.addEventListener('click', closeSignInModal);
+
+  //   return () => {
+  //     // document.removeEventListener('click', closeSignUpModal);
+  //     // document.removeEventListener('click', closeSignInModal);
+  //   };
+  // }, [signUpModal, signInModal]);
 
   const onLogout = () => {
     localStorage.removeItem('token');
     alert('로그아웃 되었습니다.');
     window.location.replace('/');
   };
-
   return (
     <S.Wrapper>
       <S.LogoContainer>
@@ -55,7 +73,9 @@ const Nav = () => {
             <S.SignIn onClick={() => setSignInModal(pre => !pre)}>
               SignIn
             </S.SignIn>
-            <S.SignInModal>{signInModal ? <SignIn /> : null}</S.SignInModal>
+            <S.SignInModal>
+              {signInModal && !userToken ? <SignIn /> : null}
+            </S.SignInModal>
           </>
         ) : (
           <>
