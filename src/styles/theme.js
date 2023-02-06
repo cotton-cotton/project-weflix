@@ -17,23 +17,6 @@ const theme = {
   mainBottomLine: '10px solid #7f7b7b',
   listBottomLine: '1px solid #7f7b7b',
 
-  // huge: '60px',
-  // big: '50px',
-  // large: '30px',
-  // medium: '18px',
-  // small: '14px',
-  // xSmall: '10px',
-
-  // huge: '60px',
-  // big: '50px',
-  // xLarge: '30px',
-  // large: '18px',
-  // semiLarge: '16px',
-  // medium: '15px',
-  // semiMedium: '14px',
-  // small: '12px',
-  // xSmall: '10px',
-
   huge: '3.75rem',
   big: '3.125rem',
   xLarge: '1.875rem',

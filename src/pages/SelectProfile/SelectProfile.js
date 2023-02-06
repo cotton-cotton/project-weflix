@@ -13,6 +13,7 @@ const SelectProfile = () => {
   const isCheckedKids = kids => {
     kids ? navigate('/content/list/kids') : navigate('/content/list');
   };
+
   return (
     <S.SelectWrapper>
       <S.SelectContainer>
@@ -34,7 +35,6 @@ const SelectProfile = () => {
             );
           })}
         </S.ImageContainer>
-
         <Link to="/profile/user">
           <S.ModifyButton>프로필 관리</S.ModifyButton>
         </Link>

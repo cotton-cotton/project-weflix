@@ -17,8 +17,8 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route element={<SignUp />} />
+        <Route element={<SignIn />} />
         <Route path="/profile/user" element={<UserProfile />} />
         <Route path="/profile/select" element={<SelectProfile />} />
         <Route path="/profile/add" element={<AddProfile />} />

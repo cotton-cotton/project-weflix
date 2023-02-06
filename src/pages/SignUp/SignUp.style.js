@@ -45,9 +45,9 @@ export const EntryContainer = styled.form`
 export const Title = styled.p`
   margin-bottom: 20px;
   color: ${({ theme }) => theme.white};
-  font-size: ${({ theme }) => theme.large};
+  font-size: ${({ theme }) => theme.xLarge};
   @media ${({ theme }) => theme.device.large} {
-    font-size: 25px;
+    font-size: 1.563rem;
   }
   @media ${({ theme }) => theme.device.small} {
     font-size: ${({ theme }) => theme.semiLarge};
@@ -141,7 +141,7 @@ export const CheckboxContent = styled.p`
     font-size: ${({ theme }) => theme.medium};
   }
   @media ${({ theme }) => theme.device.medium} {
-    font-size: 13px;
+    font-size: 0.813rem;
   }
   @media ${({ theme }) => theme.device.small} {
     font-size: ${({ theme }) => theme.xSmall};

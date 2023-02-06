@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -11,6 +11,19 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 
 const RecoSlider = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const setting = {
     dots: false,
     infinite: true,
@@ -52,8 +65,18 @@ const RecoSlider = () => {
     <Wrapper>
       <ListSlider {...setting}>
         {RecoListData &&
-          RecoListData.map(({ id, src, alt }) => {
-            return <SliderBox key={id} src={src} alt={alt} />;
+          RecoListData.map(list => {
+            return (
+              <SliderBox
+                key={list.id}
+                src={list.src}
+                alt={list.alt}
+                title={list.title}
+                rate={list.rate}
+                intro={list.intro}
+                width={width}
+              />
+            );
           })}
       </ListSlider>
     </Wrapper>

@@ -24,115 +24,143 @@ export const Logo = styled.img`
 `;
 export const LogInContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 210px;
+`;
+export const SignUp = styled.button`
+  width: 120px;
+  height: 40px;
+  color: ${({ theme }) => theme.lightGray};
+  background: none;
+  font-size: 1.25rem;
+  font-weight: ${({ theme }) => theme.normal};
+  letter-spacing: 2px;
+  border: none;
+  border-right: 2px solid ${({ theme }) => theme.mainBlue};
+  cursor: pointer;
   @media ${({ theme }) => theme.device.xLarge} {
-    width: 200px;
+    width: 110px;
   }
   @media ${({ theme }) => theme.device.large} {
-    width: 180px;
+    width: 100px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 160px;
+    width: 90px;
+    font-size: ${({ theme }) => theme.large};
   }
   @media ${({ theme }) => theme.device.small} {
-    width: 130px;
+    width: 80px;
+    font-size: ${({ theme }) => theme.semiMedium};
+    border-right: none;
   }
 `;
 export const SignIn = styled.button`
-  width: 90px;
+  width: 120px;
   height: 40px;
-  color: ${({ theme }) => theme.white};
-  background-color: ${({ theme }) => theme.mainBlue};
-  font-size: ${({ theme }) => theme.large};
+  color: ${({ theme }) => theme.lightGray};
+  background: none;
+  font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: 2px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  @media ${({ theme }) => theme.device.xLarge} {
+    width: 110px;
+  }
   @media ${({ theme }) => theme.device.large} {
-    width: 80px;
+    width: 100px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 70px;
-    font-size: ${({ theme }) => theme.semiLarge};
+    width: 90px;
+    font-size: ${({ theme }) => theme.large};
   }
   @media ${({ theme }) => theme.device.small} {
-    width: 60px;
-    height: 30px;
-    font-size: ${({ theme }) => theme.small};
-  }
-`;
-export const SignUp = styled.button`
-  width: 90px;
-  height: 40px;
-  color: ${({ theme }) => theme.white};
-  background-color: ${({ theme }) => theme.mainBlue};
-  font-size: ${({ theme }) => theme.large};
-  font-weight: ${({ theme }) => theme.normal};
-  letter-spacing: 2px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  @media ${({ theme }) => theme.device.large} {
     width: 80px;
-  }
-  @media ${({ theme }) => theme.device.medium} {
-    width: 70px;
-    font-size: ${({ theme }) => theme.semiLarge};
-  }
-  @media ${({ theme }) => theme.device.small} {
-    width: 60px;
-    height: 30px;
-    font-size: ${({ theme }) => theme.small};
+    font-size: ${({ theme }) => theme.semiMedium};
   }
 `;
+export const LogoutContainer = styled.div`
+  display: flex;
+`;
+
 export const Logout = styled.button`
-  width: 90px;
+  width: 120px;
   height: 40px;
-  color: ${({ theme }) => theme.white};
-  background-color: ${({ theme }) => theme.mainBlue};
-  font-size: ${({ theme }) => theme.large};
+  color: ${({ theme }) => theme.lightGray};
+  background: none;
+  font-size: 1.25rem;
   font-weight: ${({ theme }) => theme.normal};
   letter-spacing: 2px;
-  border-radius: 5px;
   border: none;
+  border-right: 2px solid ${({ theme }) => theme.mainBlue};
   cursor: pointer;
+  @media ${({ theme }) => theme.device.xLarge} {
+    width: 110px;
+  }
   @media ${({ theme }) => theme.device.large} {
-    width: 80px;
+    width: 100px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 70px;
-    font-size: ${({ theme }) => theme.semiLarge};
+    width: 90px;
+    font-size: ${({ theme }) => theme.large};
   }
   @media ${({ theme }) => theme.device.small} {
-    width: 60px;
-    height: 30px;
-    font-size: ${({ theme }) => theme.small};
+    width: 80px;
+    font-size: ${({ theme }) => theme.semiMedium};
+    border-right: none;
   }
 `;
 export const Profile = styled.button`
-  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
   height: 40px;
   color: ${({ theme }) => theme.white};
-  background-color: ${({ theme }) => theme.mainBlue};
+  background: none;
   font-size: ${({ theme }) => theme.large};
   font-weight: ${({ theme }) => theme.normal};
   letter-spacing: 2px;
-  border-radius: 5px;
   border: none;
+  border-right: 2px solid ${({ theme }) => theme.mainBlue};
   cursor: pointer;
+  @media ${({ theme }) => theme.device.xLarge} {
+    width: 70px;
+  }
   @media ${({ theme }) => theme.device.large} {
-    width: 80px;
+    width: 60px;
   }
   @media ${({ theme }) => theme.device.medium} {
-    width: 70px;
-    font-size: ${({ theme }) => theme.semiLarge};
+    width: 50px;
   }
   @media ${({ theme }) => theme.device.small} {
+    width: 40px;
+    border-right: none;
+  }
+`;
+export const Setting = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 40px;
+  color: ${({ theme }) => theme.white};
+  background: none;
+  font-size: ${({ theme }) => theme.large};
+  font-weight: ${({ theme }) => theme.normal};
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  @media ${({ theme }) => theme.device.xLarge} {
+    width: 70px;
+  }
+  @media ${({ theme }) => theme.device.large} {
     width: 60px;
-    height: 30px;
-    font-size: ${({ theme }) => theme.small};
+  }
+  @media ${({ theme }) => theme.device.medium} {
+    width: 50px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    width: 40px;
   }
 `;
 export const SignUpModal = styled.div`

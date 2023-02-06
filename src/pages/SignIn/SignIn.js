@@ -2,17 +2,11 @@ import React, { useState } from 'react';
 import * as S from './SignIn.style';
 import InputContainer from '../../components/InputContainer/InputContainer';
 import { SignInData } from '../SignIn/SignInData';
-import axios from 'axios';
-import API from '../Config/Config';
-import { useNavigate } from 'react-router-dom';
 
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { firebaseAuth } from '../../shared/firebase';
+import { firebaseAuth } from '../shared/firebase';
 
 const SignIn = () => {
-  const userToken = localStorage.getItem('token');
-  const navigate = useNavigate();
-
   const [inputValue, setInputValue] = useState({
     userEmail: '',
     userPassword: '',
@@ -58,25 +52,8 @@ const SignIn = () => {
       setPasswordVal(false);
     }
   };
-  // const handleData = () => {
-  //   axios
-  //     .post(API.SIGN_IN, {
-  //       email: userEmail,
-  //       password: userPassword,
-  //     })
-  //     .then(res => {
-  //       window.location.replace('/profile/user');
-  //       console.log(res.data.access);
-  //       localStorage.setItem('token', JSON.stringify(res.data.access));
-  //       console.log('true');
-  //     })
-  //     .catch(error => {
-  //       alert(error);
-  //       console.log('false');
-  //     });
-  // };
 
-  const onLogin = async () => {
+  const onSignIn = async () => {
     try {
       const userData = await signInWithEmailAndPassword(
         firebaseAuth,
@@ -120,7 +97,7 @@ const SignIn = () => {
           <S.ButtonContainer>
             <S.SignInButton
               type="button"
-              onClick={() => onLogin()}
+              onClick={onSignIn}
               disabled={isActiveForm ? false : true}
               isActiveForm={isActiveForm}
             >

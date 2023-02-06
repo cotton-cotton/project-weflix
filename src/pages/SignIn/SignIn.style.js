@@ -50,7 +50,7 @@ export const Title = styled.p`
   color: ${({ theme }) => theme.white};
   font-size: ${({ theme }) => theme.xLarge};
   @media ${({ theme }) => theme.device.large} {
-    font-size: 25px;
+    font-size: 1.563rem;
   }
   @media ${({ theme }) => theme.device.small} {
     font-size: ${({ theme }) => theme.semiLarge};

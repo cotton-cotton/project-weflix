@@ -16,7 +16,6 @@ const KidsList = () => {
           <KidsContentSlider />
         </S.Slider>
       </S.SliderContent>
-
       <S.ListContainer>
         <Link to="/content/all" style={{ textDecoration: 'none' }}>
           <S.Category>지금 뜨는 컨텐츠 </S.Category>
@@ -25,14 +24,12 @@ const KidsList = () => {
           <KidsNewSlider />
         </S.ContentContainer>
       </S.ListContainer>
-
       <S.ListContainer>
         <S.Category>맞춤 컨텐츠</S.Category>
         <S.ContentContainer>
           <KidsRecoSlider />
         </S.ContentContainer>
       </S.ListContainer>
-
       <S.ListContainer>
         <S.Category>TOP 100</S.Category>
         <S.ContentContainer>

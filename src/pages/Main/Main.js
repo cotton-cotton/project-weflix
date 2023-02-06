@@ -26,7 +26,6 @@ const Main = () => {
           </S.Search>
         </S.Content>
       </S.IntroContainer>
-
       <S.ListContainer>
         <S.ContentContainer>
           <S.InfoContainer>
@@ -40,7 +39,6 @@ const Main = () => {
           <S.ListImg src="/images/신밧드의 모험.jpg" alt="list-img" />
         </S.ContentContainer>
       </S.ListContainer>
-
       <S.ListContainer>
         <S.ContentContainer>
           <S.ListImg src="/images/자이로드롭.jpg" alt="list-img" />
@@ -54,7 +52,6 @@ const Main = () => {
           </S.InfoContainer>
         </S.ContentContainer>
       </S.ListContainer>
-
       <S.ListContainer>
         <S.ContentContainer>
           <S.InfoContainer>
@@ -68,7 +65,6 @@ const Main = () => {
           <S.ListImg src="/images/도버.jpg" alt="list-img" />
         </S.ContentContainer>
       </S.ListContainer>
-
       <S.ListContainer>
         <S.ContentContainer>
           <S.ListImg src="/images/코코볼.JPG" alt="list-img" />

@@ -15,21 +15,18 @@ const ContentList = () => {
           <ContentSlider />
         </S.Slider>
       </S.SliderContent>
-
       <S.ListContainer>
         <S.Category>지금 뜨는 컨텐츠</S.Category>
         <S.ContentContainer>
           <NewSlider />
         </S.ContentContainer>
       </S.ListContainer>
-
       <S.ListContainer>
         <S.Category>맞춤 컨텐츠</S.Category>
         <S.ContentContainer>
           <RecoSlider />
         </S.ContentContainer>
       </S.ListContainer>
-
       <S.ListContainer>
         <S.Category>TOP 100</S.Category>
         <S.ContentContainer>

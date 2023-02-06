@@ -14,7 +14,7 @@ export const InputContainer = styled.input`
   &::placeholder {
     color: ${({ theme }) => theme.lightGray};
     @media ${({ theme }) => theme.device.large} {
-      font-size: 13px;
+      font-size: 0.813rem;
     }
     @media ${({ theme }) => theme.device.medium} {
       font-size: ${({ theme }) => theme.small};
