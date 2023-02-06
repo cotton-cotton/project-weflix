@@ -88,7 +88,7 @@ const SignUp = () => {
 
   const onSignUp = async () => {
     try {
-      const registeredUser = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         firebaseAuth,
         userEmail,
         userPassword
