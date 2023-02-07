@@ -1,4 +1,4 @@
-# To Do List 2022
+# WEFLIX
 
 ## 1. 팀원
 - Backend: 박진성
